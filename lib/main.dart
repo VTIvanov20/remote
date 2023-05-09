@@ -37,10 +37,35 @@ class MyHomePage extends StatelessWidget {
     var appState = context.watch<MyAppState>();
 
     return Scaffold(
+      backgroundColor: Colors.amberAccent,
       body: Column(
+        // children: [
+        //   const Text("Hey, Bob",
+        //       style: TextStyle(
+        //         color: Colors.white,
+        //         fontSize: 31,
+        //       )),
+        //   const Text("What are you in the mood for?",
+        //       style: TextStyle(
+        //         color: Colors.black,
+        //         fontSize: 17,
+        //       )),
+        //   Text(appState.current.asLowerCase),
+        // ],
         children: [
-          const Text('A random idea:'),
-          Text(appState.current.asLowerCase),
+          Align(alignment: Alignment.topLeft, child: [
+            const Text("Hey, Bob",
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 31,
+                )),
+            const Text("What are you in the mood for?",
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 17,
+                )),
+            Text(appState.current.asLowerCase),
+          ])
         ],
       ),
     );
