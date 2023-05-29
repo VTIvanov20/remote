@@ -91,7 +91,8 @@ class _BottomNavigationBarExampleState
           Align(
               alignment: Alignment.centerRight,
               child: Image.network('https://picsum.photos/200/200')),
-          Row(
+          Wrap(
+            spacing: 100,
             children: const <Widget>[
               // Expanded(
               //   child: Text('Deliver features faster',
@@ -119,42 +120,38 @@ class _BottomNavigationBarExampleState
                 ),
                 backgroundColor: Color(0xFFddbb40),
               ),
-              
-              Spacer(),
+
+              // Spacer(),
 
               Text('Movies',
-                style: TextStyle(
-                  color: Color(0xFF959595),
-                  fontSize: 20,
-                )
-              ),
+                  style: TextStyle(
+                    color: Color(0xFF959595),
+                    fontSize: 20,
+                  )),
 
-              Spacer(),
+              // Spacer(),
 
               Text('Series',
-                style: TextStyle(
-                  color: Color(0xFF959595),
-                  fontSize: 20,
-                )
-              ),
+                  style: TextStyle(
+                    color: Color(0xFF959595),
+                    fontSize: 20,
+                  )),
 
-              Spacer(),
+              // Spacer(),
 
               Text('TV Series',
-                style: TextStyle(
-                  color: Color(0xFF959595),
-                  fontSize: 20,
-                )
-              ),
+                  style: TextStyle(
+                    color: Color(0xFF959595),
+                    fontSize: 20,
+                  )),
 
-              Spacer(),
+              // Spacer(),
 
               Text('TV Shows',
-                style: TextStyle(
-                  color: Color(0xFF959595),
-                  fontSize: 20,
-                )
-              ),
+                  style: TextStyle(
+                    color: Color(0xFF959595),
+                    fontSize: 20,
+                  )),
             ],
           )
         ],
