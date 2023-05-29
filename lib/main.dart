@@ -90,7 +90,73 @@ class _BottomNavigationBarExampleState
           ),
           Align(
               alignment: Alignment.centerRight,
-              child: Image.network('https://picsum.photos/200/200'))
+              child: Image.network('https://picsum.photos/200/200')),
+          Row(
+            children: const <Widget>[
+              // Expanded(
+              //   child: Text('Deliver features faster',
+              //       textAlign: TextAlign.center),
+              // ),
+              // Expanded(
+              //   child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
+              // ),
+              //
+              // ============ start of rajesh ============
+              //
+              //const Directionality(
+              //     textDirection: TextDirection.ltr,
+              //     child: Row(
+              //       children: [Chip(label: Text('asdad'))],
+              //     ))
+              //
+              // ============ end of rajesh ============
+              //
+              Chip(
+                label: Text('Trending'),
+                labelStyle: TextStyle(
+                  color: Color(0xFFFFFFFF),
+                  fontSize: 20,
+                ),
+                backgroundColor: Color(0xFFddbb40),
+              ),
+              
+              Spacer(),
+
+              Text('Movies',
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
+
+              Spacer(),
+
+              Text('Series',
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
+
+              Spacer(),
+
+              Text('TV Series',
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
+
+              Spacer(),
+
+              Text('TV Shows',
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
+            ],
+          )
         ],
       ),
       bottomNavigationBar: BottomNavigationBar(
