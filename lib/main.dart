@@ -45,6 +45,10 @@ class _BottomNavigationBarExampleState
       'Settings',
       style: optionStyle,
     ),
+    Text(
+      'Settings',
+      style: optionStyle,
+    ),
   ];
 
   void _onItemTapped(int index) {
@@ -56,11 +60,38 @@ class _BottomNavigationBarExampleState
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF060606), //<-- SEE HERE
       appBar: AppBar(
         title: const Text('Movie App'),
       ),
-      body: Center(
-        child: _widgetOptions.elementAt(_selectedIndex),
+      body: Column(
+        children: <Widget>[
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'Hey, Bob',
+              style: TextStyle(
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+                fontSize: 70,
+              ),
+            ),
+          ),
+          const Align(
+            alignment: Alignment.centerLeft,
+            child: Text(
+              'What are we watching today?',
+              style: TextStyle(
+                color: Color(0xFF656565),
+                fontWeight: FontWeight.normal,
+                fontSize: 35,
+              ),
+            ),
+          ),
+          Align(
+              alignment: Alignment.centerRight,
+              child: Image.network('https://picsum.photos/200/200'))
+        ],
       ),
       bottomNavigationBar: BottomNavigationBar(
         items: const <BottomNavigationBarItem>[
@@ -77,6 +108,11 @@ class _BottomNavigationBarExampleState
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
             label: 'School',
+            backgroundColor: Colors.black87,
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.settings),
+            label: 'Settings',
             backgroundColor: Colors.black87,
           ),
           BottomNavigationBarItem(
