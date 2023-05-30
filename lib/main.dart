@@ -2,29 +2,27 @@ import 'package:flutter/material.dart';
 
 /// Flutter code sample for [BottomNavigationBar].
 
-void main() => runApp(const BottomNavigationBarExampleApp());
+void main() => runApp(const MovieApp());
 
-class BottomNavigationBarExampleApp extends StatelessWidget {
-  const BottomNavigationBarExampleApp({super.key});
+class MovieApp extends StatelessWidget {
+  const MovieApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
-      home: BottomNavigationBarExample(),
+      home: MainController(),
     );
   }
 }
 
-class BottomNavigationBarExample extends StatefulWidget {
-  const BottomNavigationBarExample({super.key});
+class MainController extends StatefulWidget {
+  const MainController({super.key});
 
   @override
-  State<BottomNavigationBarExample> createState() =>
-      _BottomNavigationBarExampleState();
+  State<MainController> createState() => _MainControllerState();
 }
 
-class _BottomNavigationBarExampleState
-    extends State<BottomNavigationBarExample> {
+class _MainControllerState extends State<MainController> {
   int _selectedIndex = 0;
   static const TextStyle optionStyle =
       TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
@@ -94,14 +92,6 @@ class _BottomNavigationBarExampleState
           Wrap(
             spacing: 100,
             children: const <Widget>[
-              // Expanded(
-              //   child: Text('Deliver features faster',
-              //       textAlign: TextAlign.center),
-              // ),
-              // Expanded(
-              //   child: Text('Craft beautiful UIs', textAlign: TextAlign.center),
-              // ),
-              //
               // ============ start of rajesh ============
               //
               //const Directionality(
@@ -111,7 +101,6 @@ class _BottomNavigationBarExampleState
               //     ))
               //
               // ============ end of rajesh ============
-              //
               Chip(
                 label: Text('Trending'),
                 labelStyle: TextStyle(
@@ -121,37 +110,33 @@ class _BottomNavigationBarExampleState
                 backgroundColor: Color(0xFFddbb40),
               ),
 
-              // Spacer(),
-
               Text('Movies',
-                  style: TextStyle(
-                    color: Color(0xFF959595),
-                    fontSize: 20,
-                  )),
-
-              // Spacer(),
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
 
               Text('Series',
-                  style: TextStyle(
-                    color: Color(0xFF959595),
-                    fontSize: 20,
-                  )),
-
-              // Spacer(),
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
 
               Text('TV Series',
-                  style: TextStyle(
-                    color: Color(0xFF959595),
-                    fontSize: 20,
-                  )),
-
-              // Spacer(),
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
 
               Text('TV Shows',
-                  style: TextStyle(
-                    color: Color(0xFF959595),
-                    fontSize: 20,
-                  )),
+                style: TextStyle(
+                  color: Color(0xFF959595),
+                  fontSize: 20,
+                )
+              ),
             ],
           )
         ],
@@ -163,21 +148,25 @@ class _BottomNavigationBarExampleState
             label: 'Home',
             backgroundColor: Colors.black87,
           ),
+
           BottomNavigationBarItem(
             icon: Icon(Icons.business),
             label: 'Business',
             backgroundColor: Colors.black87,
           ),
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
             label: 'School',
             backgroundColor: Colors.black87,
           ),
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
             backgroundColor: Colors.black87,
           ),
+          
           BottomNavigationBarItem(
             icon: Icon(Icons.settings),
             label: 'Settings',
