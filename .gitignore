@@ -79,7 +79,6 @@ app.*.map.json
 /dev/devicelab/ABresults*.json
 /dev/docs/doc/
 /dev/docs/flutter.docs.zip
-/dev/docs/lib/
 /dev/docs/pubspec.yaml
 /dev/integration_tests/**/xcuserdata
 /dev/integration_tests/**/Pods
@@ -194,8 +193,6 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
 parts/
 sdist/
 var/
