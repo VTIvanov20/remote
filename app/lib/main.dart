@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/square.dart';
+import 'package:movie_app/track_pad.dart';
+import 'package:movie_app/options.dart';
 import 'package:movie_app/bottom_nav_widget.dart';
 
 void main() => runApp(const ArmController());
@@ -29,19 +31,21 @@ class AppContents extends StatelessWidget {
     return ListView(
       children: const [
         Center(
-          child: Text(
-            "Choose a robot",
-            style: TextStyle(
-              fontFamily: "Montserrat",
-              fontSize: 17.5,
-              fontWeight: FontWeight.bold,
-              color: Colors.white,
+          child: Padding(
+            padding: EdgeInsets.only(top: 60),
+            child: Text(
+              "Choose a robot",
+              style: TextStyle(
+                fontFamily: "Montserrat",
+                fontSize: 17.5,
+                fontWeight: FontWeight.bold,
+                color: Colors.white,
+              ),
             ),
           ),
         ),
-        MySquare(),
-        MySquare(),
-        BottomNavigationWidget(),
+        OptionBar(),
+        TrackPad(),
       ],
     );
   }

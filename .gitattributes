@@ -1,3 +1,12 @@
+*.cmake linguist-detectable=false
+*.cpp linguist-detectable=false
+*.cc linguist-detectable=false
+*.c linguist-detectable=false
+*.h linguist-detectable=false
+*.ipynb linguist-detectable=false
+*.html linguist-detectable=false
+*.xml linguist-detectable=false
+
 # Miscellaneous
 *.class
 *.log
