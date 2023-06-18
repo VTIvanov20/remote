@@ -2,10 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/square.dart';
 import 'package:movie_app/bottom_nav_widget.dart';
 
-/*
-Propagation Tool: Create a tool that provides real-time propagation forecasts and conditions for various frequency bands. Users can input their location and desired band, and the app can display current propagation conditions, solar activity, and other relevant data to optimize their radio communications.
-*/
-
 void main() => runApp(const ArmController());
 
 class ArmController extends StatelessWidget {
@@ -13,15 +9,40 @@ class ArmController extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
       title: 'Your App',
-      home: ListView(
-        children: [
-          MySquare(),
-          MySquare(),
-          const BottomNavigationWidget(),
-        ],
+      home: Scaffold(
+        backgroundColor: Colors.black,
+        body: AppContents(),
       ),
+    );
+  }
+}
+
+class AppContents extends StatelessWidget {
+  const AppContents({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: const [
+        Center(
+          child: Text(
+            "Choose a robot",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontSize: 17.5,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        MySquare(),
+        MySquare(),
+        BottomNavigationWidget(),
+      ],
     );
   }
 }
