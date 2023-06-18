@@ -44,8 +44,7 @@ class ButtonLayout extends StatelessWidget {
               ),
             ],
           ),
-
-          const SizedBox(width: 20), // Add spacing between the row and column
+          const SizedBox(width: 20),
           Flexible(
             child: Column(
               children: [
@@ -66,7 +65,7 @@ class ButtonLayout extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 20), // Add spacing between the row and column
+          const SizedBox(width: 20),
           Flexible(
             child: Column(
               children: [
