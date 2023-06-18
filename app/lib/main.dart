@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/square.dart';
 import 'package:movie_app/track_pad.dart';
 import 'package:movie_app/options.dart';
+import 'package:movie_app/button_layout.dart';
 import 'package:movie_app/bottom_nav_widget.dart';
 
 void main() => runApp(const ArmController());
@@ -46,6 +47,7 @@ class AppContents extends StatelessWidget {
         ),
         OptionBar(),
         TrackPad(),
+        ButtonLayout(),
       ],
     );
   }
