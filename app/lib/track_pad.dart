@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 
 class TrackPad extends StatefulWidget {
@@ -24,6 +26,7 @@ class _TrackPadState extends State<TrackPad> {
           onPanUpdate: (details) {
             _updatePosition(details.localPosition);
           },
+          // debug/dev values
           child: Container(
             height: 500,
             color: const Color(0xFF1C1C1E),
@@ -33,11 +36,11 @@ class _TrackPadState extends State<TrackPad> {
                 children: [
                   Text(
                     'X Position: $_xPosition',
-                    style: TextStyle(fontSize: 24, color: Colors.white),
+                    style: const TextStyle(fontSize: 24, color: Colors.white),
                   ),
                   Text(
                     'Y Position: $_yPosition',
-                    style: TextStyle(fontSize: 24, color: Colors.white),
+                    style: const TextStyle(fontSize: 24, color: Colors.white),
                   ),
                 ],
               ),
@@ -50,8 +53,8 @@ class _TrackPadState extends State<TrackPad> {
 
   void _updatePosition(Offset position) {
     setState(() {
-      _xPosition = position.dx - (context.size!.width / 2);
-      _yPosition = -position.dy + (context.size!.height / 2);
+      _xPosition = (position.dx - (context.size!.width / 2)).toInt() as double;
+      _yPosition = (-position.dy + (context.size!.height / 2)).toInt() as double;
     });
   }
 }
