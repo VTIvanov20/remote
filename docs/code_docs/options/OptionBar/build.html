@@ -114,26 +114,35 @@ and</li>
   <h2><span>Implementation</span></h2>
   <pre class="language-dart"><code class="language-dart">@override
 Widget build(BuildContext context) {
-  return Padding(
-    padding: const EdgeInsets.symmetric(vertical: 20),
+  return const Padding(
+    padding: EdgeInsets.symmetric(vertical: 20),
     child: Row(
-      children: const &lt;Widget&gt;[
+      children: &lt;Widget&gt;[
+        &#47;&#47;&#47; Returns a single icon buttton
+        &#47;&#47;&#47; Satisfies full app width
         Expanded(
-          child: Icon(
-            Icons.bug_report_outlined,
-            color: Color(0xFF404040),
+          child: IconButton(
+            icon: Icon(Icons.bug_report_outlined,
+              color: Color(0xFF404040),
+            ), onPressed: _launchRepoUrl,
           ),
         ),
+        &#47;&#47;&#47; Returns a single icon buttton
+        &#47;&#47;&#47; Satisfies full app width
         Expanded(
-          child: Icon(
-            Icons.bug_report_outlined,
-            color: Color(0xFF404040),
+          child: IconButton(
+            icon: Icon(Icons.bug_report_outlined,
+              color: Color(0xFF404040),
+            ), onPressed: _launchBugUrl,
           ),
         ),
+        &#47;&#47;&#47; Returns a single icon buttton
+        &#47;&#47;&#47; Satisfies full app width
         Expanded(
-          child: Icon(
-            Icons.bug_report_outlined,
-            color: Color(0xFF404040),
+          child: IconButton(
+            icon: Icon(Icons.bug_report_outlined,
+              color: Color(0xFF404040),
+            ), onPressed: _launchWikiUrl,
           ),
         ),
       ],

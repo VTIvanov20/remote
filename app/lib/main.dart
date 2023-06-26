@@ -12,12 +12,12 @@ import 'package:movie_app/button_layout.dart';
 
 void main() => runApp(const ArmController());
 
-/// This widget is a dancing Linux penguin.
-///
-/// {@animation name 100 200 http://host.com/path/to/video.mp4}
+/// This is the main app controller
 class ArmController extends StatelessWidget {
   const ArmController({super.key});
 
+  /// Initializes an app with Material UI and its' contents
+  /// Prefers usage of Widgets and reusability
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -53,9 +53,20 @@ class AppContents extends StatelessWidget {
             ),
           ),
         ),
+        /// Returns Stateless Widget
+        /// Contains composition of IconButton classes, making up the top options bar
         OptionBar(),
+
+        /// Returns Stateless Widget
+        /// Contains Python run method via darpy. (Heavy WIP)
         // PyScript(), // unstable, remove later
+        
+        /// Returns a Stateful Widget
+        /// Contains data for the remote via matrix math
         TrackPad(key: null,),
+
+        /// Returns Stateless Widget
+        /// Contains cimposition of buttons & Z-axis trigger
         ButtonLayout(),
       ],
     );

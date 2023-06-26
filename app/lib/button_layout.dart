@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 
+/// Contains the ButtonLayout Widget source
+/// Returns itself as a Widget to be used in main.dart as a styling component
+
+// TODO: finish commenting the code
 class ButtonLayout extends StatelessWidget {
   const ButtonLayout({super.key});
 

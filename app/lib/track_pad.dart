@@ -1,12 +1,17 @@
 import 'package:flutter/material.dart';
 
+/// Contains the TrackPad Widget source
+/// Returns itself as a Widget to be used recursively
 class TrackPad extends StatefulWidget {
   const TrackPad({Key? key}) : super(key: key);
 
+  /// From Stateful Widget -> Initalizes a state for the trackpad
   @override
   _TrackPadState createState() => _TrackPadState();
 }
 
+/// Creates Coordinate base values
+/// Later getting casted to Int, after clamp
 class _TrackPadState extends State<TrackPad> {
   double _xPosition = 0.0;
   double _yPosition = 0.0;
@@ -14,10 +19,13 @@ class _TrackPadState extends State<TrackPad> {
 
   @override
   Widget build(BuildContext context) {
+    /// Wraps class with horizontal padding
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: ClipRRect(
         borderRadius: BorderRadius.circular(40),
+        /// Constructs GestureDetector to track user movements
+        /// Returns corespondant to the current app/window ViewPort width and height respectively
         child: GestureDetector(
           onPanStart: (details) {
             _updatePosition(details.localPosition);
@@ -50,6 +58,8 @@ class _TrackPadState extends State<TrackPad> {
     );
   }
 
+  /// The following function updates the GestureDetector values, once change is detected
+  /// Doesn't return anything
   void _updatePosition(Offset position) {
     setState(() {
       double dx = position.dx - (context.size!.width / 2);
@@ -60,6 +70,8 @@ class _TrackPadState extends State<TrackPad> {
     });
   }
 
+  /// The following function clamps GestureDetector values to fit in the arm's coordinate range (0-150)
+  /// Returns updated values
   double _clampPosition(double value, double maxRange) {
     if (value.abs() > maxRange) {
       return value.isNegative ? -maxRange : maxRange;

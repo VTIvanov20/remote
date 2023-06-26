@@ -58,34 +58,7 @@
 
     
 <section class="desc markdown">
-  <p>This widget is a dancing Linux penguin.</p>
-<div style="position: relative;">
-<div id="name_play_button_" onclick="var name = document.getElementById('name');
-if (name.paused) {
-name.play();
-this.style.display = 'none';
-} else {
-name.pause();
-this.style.display = 'block';
-}" style="position:absolute;
-width:100px;
-height:200px;
-z-index:100000;
-background-position: center;
-background-repeat: no-repeat;
-background-image: url(static-assets/play_button.svg);">
-</div>
-<video id="name" style="width:100px; height:200px;" onclick="var name_play_button_ = document.getElementById('name_play_button_');
-if (this.paused) {
-this.play();
-name_play_button_.style.display = 'none';
-} else {
-this.pause();
-name_play_button_.style.display = 'block';
-}" loop="">
-<source src="http://host.com/path/to/video.mp4" type="video/mp4">
-</video>
-</div>
+  <p>This is the main app controller</p>
 </section>
 
 
@@ -183,7 +156,8 @@ name_play_button_.style.display = 'block';
 
 </dt>
 <dd>
-  Describes the part of the user interface represented by this widget.
+  Initializes an app with Material UI and its' contents
+Prefers usage of Widgets and reusability
   <div class="features"><span class="feature">override</span></div>
 
 </dd>
