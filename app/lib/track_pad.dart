@@ -1,5 +1,3 @@
-import 'dart:ffi';
-
 import 'package:flutter/material.dart';
 
 class TrackPad extends StatefulWidget {
@@ -12,6 +10,7 @@ class TrackPad extends StatefulWidget {
 class _TrackPadState extends State<TrackPad> {
   double _xPosition = 0.0;
   double _yPosition = 0.0;
+  double maxRange = 150.0;
 
   @override
   Widget build(BuildContext context) {
@@ -53,8 +52,19 @@ class _TrackPadState extends State<TrackPad> {
 
   void _updatePosition(Offset position) {
     setState(() {
-      _xPosition = (position.dx - (context.size!.width / 2)).toInt() as double;
-      _yPosition = (-position.dy + (context.size!.height / 2)).toInt() as double;
+      double dx = position.dx - (context.size!.width / 2);
+      double dy = -position.dy + (context.size!.height / 2);
+
+      _xPosition = (_clampPosition(dx, maxRange)).toInt() as double;
+      _yPosition = (_clampPosition(dy, maxRange)).toInt() as double;
     });
+  }
+
+  double _clampPosition(double value, double maxRange) {
+    if (value.abs() > maxRange) {
+      return value.isNegative ? -maxRange : maxRange;
+    } else {
+      return value;
+    }
   }
 }
