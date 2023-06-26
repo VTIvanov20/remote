@@ -19,16 +19,10 @@ class _TrackPadState extends State<TrackPad> {
         borderRadius: BorderRadius.circular(40),
         child: GestureDetector(
           onPanStart: (details) {
-            setState(() {
-              _xPosition = details.localPosition.dx;
-              _yPosition = details.localPosition.dy;
-            });
+            _updatePosition(details.localPosition);
           },
           onPanUpdate: (details) {
-            setState(() {
-              _xPosition = details.localPosition.dx;
-              _yPosition = details.localPosition.dy;
-            });
+            _updatePosition(details.localPosition);
           },
           child: Container(
             height: 500,
@@ -52,5 +46,12 @@ class _TrackPadState extends State<TrackPad> {
         ),
       ),
     );
+  }
+
+  void _updatePosition(Offset position) {
+    setState(() {
+      _xPosition = position.dx - (context.size!.width / 2);
+      _yPosition = -position.dy + (context.size!.height / 2);
+    });
   }
 }
