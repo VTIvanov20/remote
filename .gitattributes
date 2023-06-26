@@ -8,6 +8,9 @@
 *.xml linguist-detectable=false
 *.js linguist-detectable=false
 *.css linguist-detectable=false
+*.rb linguist-detectable=false
+*.kt linguist-detectable=false
+*.kts linguist-detectable=false
 
 # Miscellaneous
 *.class

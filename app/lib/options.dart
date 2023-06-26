@@ -9,8 +9,6 @@ final Uri _wikiUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app/wiki')
 class OptionBar extends StatelessWidget {
   const OptionBar({super.key});
 
-  // TODO: Make icons into buttons with links
-
   @override
   Widget build(BuildContext context) {
     return const Padding(
