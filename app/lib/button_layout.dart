@@ -13,31 +13,37 @@ class ButtonLayout extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  color: const Color(0xFF1C1C1E),
-                  child: const Center(
-                    child: Text(
-                      '1',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+              GestureDetector(
+                onTap: () => print("tapped 1"),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    color: const Color(0xFF1C1C1E),
+                    child: const Center(
+                      child: Text(
+                        '1',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
               ),
               const SizedBox(height: 10),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(100),
-                child: Container(
-                  width: 60,
-                  height: 60,
-                  color: const Color(0xFF1C1C1E),
-                  child: const Center(
-                    child: Text(
-                      '2',
-                      style: TextStyle(fontSize: 18, color: Colors.white),
+              GestureDetector(
+                onTap: () => print("tapped 2"),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(100),
+                  child: Container(
+                    width: 60,
+                    height: 60,
+                    color: const Color(0xFF1C1C1E),
+                    child: const Center(
+                      child: Text(
+                        '2',
+                        style: TextStyle(fontSize: 18, color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
@@ -48,16 +54,19 @@ class ButtonLayout extends StatelessWidget {
           Flexible(
             child: Column(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                    width: 100,
-                    height: 100,
-                    color: const Color(0xFF1C1C1E),
-                    child: const Center(
-                      child: Text(
-                        '3',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                GestureDetector(
+                  onTap: () => print("tapped 3"),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(100),
+                    child: Container(
+                      width: 100,
+                      height: 100,
+                      color: const Color(0xFF1C1C1E),
+                      child: const Center(
+                        child: Text(
+                          '3',
+                          style: TextStyle(fontSize: 18, color: Colors.white),
+                        ),
                       ),
                     ),
                   ),
