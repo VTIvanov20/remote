@@ -6,6 +6,8 @@
 *.ipynb linguist-detectable=false
 *.html linguist-detectable=false
 *.xml linguist-detectable=false
+*.js linguist-detectable=false
+*.css linguist-detectable=false
 
 # Miscellaneous
 *.class
