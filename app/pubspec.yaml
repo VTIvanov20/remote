@@ -16,6 +16,7 @@ dependencies:
   provider: ^6.0.0
   io: ^1.0.4
   dartpy: ^0.0.1+4
+  dartdoc: ^6.2.2
   
 
 dev_dependencies:
