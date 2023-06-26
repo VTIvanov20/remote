@@ -7,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/track_pad.dart';
 import 'package:movie_app/options.dart';
 import 'package:movie_app/button_layout.dart';
-import 'package:dartdoc/dartdoc.dart';
+// import 'package:dartdoc/dartdoc.dart';
 // import 'package:movie_app/script_trigger.dart';
 
 void main() => runApp(const ArmController());
