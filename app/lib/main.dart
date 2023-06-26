@@ -55,7 +55,7 @@ class AppContents extends StatelessWidget {
         ),
         OptionBar(),
         // PyScript(), // unstable, remove later
-        TrackPad(),
+        TrackPad(key: null,),
         ButtonLayout(),
       ],
     );
