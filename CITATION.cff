@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+title: Kinematic Controller
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Valeri
+    family-names: Ivanov
+    email: VTIvanov20@codingburgas.bg
+    affiliation: Student
+repository-code: 'https://github.com/VTIvanov20/flutter-app'
+abstract: >-
+  Controller for kinematics (uArm Swift Pro) with flutter &
+  python
+keywords:
+  - uArm
+  - uArmSwiftPro
+  - uArm Swift Pro
+  - flutter
+  - robotics
+  - kinematics
+license: CERN-OHL-P-2.0
+commit: 60b3cd1a0576f27a0125e61a4ecd5f4a7de0406b
+version: '1.0'
+date-released: '2023-07-04'
