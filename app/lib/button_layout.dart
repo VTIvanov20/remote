@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 
-/// Contains the ButtonLayout Widget source
-/// Returns itself as a Widget to be used in main.dart as a styling component
-
-// TODO: finish commenting the code
 class ButtonLayout extends StatelessWidget {
-  const ButtonLayout({super.key});
+  const ButtonLayout({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
       child: Row(
@@ -22,8 +20,8 @@ class ButtonLayout extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(
-                    width: 60,
-                    height: 60,
+                    width: screenWidth * 0.1,
+                    height: screenWidth * 0.1,
                     color: const Color(0xFF1C1C1E),
                     child: const Center(
                       child: Text(
@@ -40,8 +38,8 @@ class ButtonLayout extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(
-                    width: 60,
-                    height: 60,
+                    width: screenWidth * 0.1,
+                    height: screenWidth * 0.1,
                     color: const Color(0xFF1C1C1E),
                     child: const Center(
                       child: Text(
@@ -56,6 +54,7 @@ class ButtonLayout extends StatelessWidget {
           ),
           const SizedBox(width: 20),
           Flexible(
+            flex: 1,
             child: Column(
               children: [
                 GestureDetector(
@@ -63,8 +62,8 @@ class ButtonLayout extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Container(
-                      width: 100,
-                      height: 100,
+                      width: screenWidth * 0.2,
+                      height: screenWidth * 0.2,
                       color: const Color(0xFF1C1C1E),
                       child: const Center(
                         child: Text(
@@ -80,13 +79,14 @@ class ButtonLayout extends StatelessWidget {
           ),
           const SizedBox(width: 20),
           Flexible(
+            flex: 1,
             child: Column(
               children: [
                 ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(
-                    width: 60,
-                    height: 140,
+                    width: screenWidth * 0.1,
+                    height: screenWidth * 0.233333,
                     color: const Color(0xFF0E0E10),
                     child: const Center(
                       child: Text(
