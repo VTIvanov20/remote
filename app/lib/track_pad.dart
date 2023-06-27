@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 class TrackPad extends StatefulWidget {
   const TrackPad({Key? key}) : super(key: key);
@@ -30,18 +31,18 @@ class _TrackPadState extends State<TrackPad> {
           },
           child: Container(
             height: availableHeight,
-            color: const Color(0xFF1C1C1E),
+            color: AppColors.inputGray,
             child: Center(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
                     'X Position: $_xPosition',
-                    style: const TextStyle(fontSize: 24, color: Colors.white),
+                    style: const TextStyle(fontSize: 24, color: AppColors.text),
                   ),
                   Text(
                     'Y Position: $_yPosition',
-                    style: const TextStyle(fontSize: 24, color: Colors.white),
+                    style: const TextStyle(fontSize: 24, color: AppColors.text),
                   ),
                 ],
               ),

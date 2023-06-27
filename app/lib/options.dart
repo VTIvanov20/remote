@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'colors.dart';
 
 final Uri _repoUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app');
 final Uri _bugUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app/issues');
@@ -18,7 +19,7 @@ class OptionBar extends StatelessWidget {
             child: IconButton(
               icon: Icon(
                 Icons.bug_report_outlined,
-                color: Color(0xFF404040),
+                color: AppColors.icons,
               ),
               onPressed: _launchRepoUrl,
             ),
@@ -27,7 +28,7 @@ class OptionBar extends StatelessWidget {
             child: IconButton(
               icon: Icon(
                 Icons.bug_report_outlined,
-                color: Color(0xFF404040),
+                color: AppColors.icons,
               ),
               onPressed: _launchBugUrl,
             ),
@@ -36,7 +37,7 @@ class OptionBar extends StatelessWidget {
             child: IconButton(
               icon: Icon(
                 Icons.bug_report_outlined,
-                color: Color(0xFF404040),
+                color: AppColors.icons,
               ),
               onPressed: _launchWikiUrl,
             ),

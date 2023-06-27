@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/track_pad.dart';
 import 'package:movie_app/options.dart';
 import 'package:movie_app/button_layout.dart';
+import 'colors.dart';
 
 void main() => runApp(const ArmController());
 
@@ -13,7 +14,7 @@ class ArmController extends StatelessWidget {
     return const MaterialApp(
       title: 'Your App',
       home: Scaffold(
-        backgroundColor: Colors.black,
+        backgroundColor: AppColors.background,
         body: SafeArea(
           child: AppContents(),
         ),
@@ -37,7 +38,7 @@ class AppContents extends StatelessWidget {
               fontFamily: "Montserrat",
               fontSize: 17.5,
               fontWeight: FontWeight.bold,
-              color: Colors.white,
+              color: AppColors.text,
             ),
             textAlign: TextAlign.center,
           ),

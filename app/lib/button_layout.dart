@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'colors.dart';
 
 class ButtonLayout extends StatelessWidget {
   const ButtonLayout({Key? key}) : super(key: key);
@@ -22,7 +23,7 @@ class ButtonLayout extends StatelessWidget {
                   child: Container(
                     width: screenWidth * 0.1,
                     height: screenWidth * 0.1,
-                    color: const Color(0xFF1C1C1E),
+                    color: AppColors.inputGray,
                     child: const Center(
                       child: Text(
                         '1',
@@ -40,7 +41,7 @@ class ButtonLayout extends StatelessWidget {
                   child: Container(
                     width: screenWidth * 0.1,
                     height: screenWidth * 0.1,
-                    color: const Color(0xFF1C1C1E),
+                    color: AppColors.inputGray,
                     child: const Center(
                       child: Text(
                         '2',
@@ -64,7 +65,7 @@ class ButtonLayout extends StatelessWidget {
                     child: Container(
                       width: screenWidth * 0.2,
                       height: screenWidth * 0.2,
-                      color: const Color(0xFF1C1C1E),
+                      color: AppColors.inputGray,
                       child: const Center(
                         child: Text(
                           '3',
@@ -87,7 +88,7 @@ class ButtonLayout extends StatelessWidget {
                   child: Container(
                     width: screenWidth * 0.1,
                     height: screenWidth * 0.233333,
-                    color: const Color(0xFF0E0E10),
+                    color: AppColors.inputBlack,
                     child: const Center(
                       child: Text(
                         '4',
