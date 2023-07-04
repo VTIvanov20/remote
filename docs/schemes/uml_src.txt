@@ -1,0 +1,68 @@
+@startuml
+set namespaceSeparator ::
+
+class "movie_app::button_layout.dart::ButtonLayout" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "movie_app::button_layout.dart::ButtonLayout"
+
+class "movie_app::colors.dart::AppColors" {
+  {static} +Color background
+  {static} +Color text
+  {static} +Color icons
+  {static} +Color inputGray
+  {static} +Color inputBlack
+}
+
+"movie_app::colors.dart::AppColors" o-- "dart::ui::Color"
+
+class "movie_app::main.dart::ArmController" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "movie_app::main.dart::ArmController"
+
+class "movie_app::main.dart::AppContents" {
+  +_AppContentsState createState()
+}
+
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "movie_app::main.dart::AppContents"
+
+class "movie_app::main.dart::_AppContentsState" {
+  +double x
+  +double y
+  +Future<void> sendCommand()
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "movie_app::main.dart::_AppContentsState"
+
+class "movie_app::options.dart::OptionBar" {
+  +Widget build()
+}
+
+"flutter::src::widgets::framework.dart::StatelessWidget" <|-- "movie_app::options.dart::OptionBar"
+
+class "movie_app::track_pad.dart::TrackPad" {
+  +dynamic Function(double, double, double) onPositionSelected
+  +_TrackPadState createState()
+  -void _handlePanUpdate()
+  +Future<void> sendCoordinates()
+}
+
+"movie_app::track_pad.dart::TrackPad" o-- "null::dynamic Function(double, double, double)"
+"flutter::src::widgets::framework.dart::StatefulWidget" <|-- "movie_app::track_pad.dart::TrackPad"
+
+class "movie_app::track_pad.dart::_TrackPadState" {
+  -double _xPosition
+  -double _yPosition
+  +double maxRange
+  +Widget build()
+  -double _clampPosition()
+}
+
+"flutter::src::widgets::framework.dart::State" <|-- "movie_app::track_pad.dart::_TrackPadState"
+
+
+@enduml
