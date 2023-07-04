@@ -3,15 +3,17 @@ import 'package:url_launcher/url_launcher.dart';
 import 'colors.dart';
 
 final Uri _repoUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app');
-final Uri _bugUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app/issues');
-final Uri _wikiUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app/wiki');
+final Uri _bugUrl =
+    Uri.parse('https://github.com/VTIvanov20/flutter-app/issues');
+final Uri _wikiUrl =
+    Uri.parse('https://github.com/VTIvanov20/flutter-app/wiki');
 
 class OptionBar extends StatelessWidget {
   const OptionBar({Key? key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Row(
         children: <Widget>[

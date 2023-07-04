@@ -1,11 +1,34 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'colors.dart';
 
 class TrackPad extends StatefulWidget {
-  const TrackPad({Key? key}) : super(key: key);
+  final Function(double, double, double) onPositionSelected;
+  const TrackPad({super.key, required this.onPositionSelected});
 
   @override
   _TrackPadState createState() => _TrackPadState();
+
+  void _handlePanUpdate(DragUpdateDetails details) {
+    final x = details.delta.dx;
+    final y = details.delta.dy;
+    const z = 0.0;
+
+    sendCoordinates(x, y, z);
+
+    onPositionSelected(x, y, z);
+  }
+
+  Future<void> sendCoordinates(double x, double y, double z) async {
+    final socket = await Socket.connect('localhost', 12345);
+    print('Connected to Python script.');
+
+    final data = 'position,$x,$y,$z';
+    socket.write(data);
+
+    socket.close();
+  }
 }
 
 class _TrackPadState extends State<TrackPad> {
@@ -24,10 +47,22 @@ class _TrackPadState extends State<TrackPad> {
         borderRadius: BorderRadius.circular(40),
         child: GestureDetector(
           onPanStart: (details) {
-            _updatePosition(details.localPosition, availableWidth, availableHeight);
+            setState(() {
+              double dx = details.localPosition.dx - (availableWidth / 2);
+              double dy = -details.localPosition.dy + (availableHeight / 2);
+
+              _xPosition = _clampPosition(dx, maxRange);
+              _yPosition = _clampPosition(dy, maxRange);
+            });
           },
           onPanUpdate: (details) {
-            _updatePosition(details.localPosition, availableWidth, availableHeight);
+            setState(() {
+              double dx = details.localPosition.dx - (availableWidth / 2);
+              double dy = -details.localPosition.dy + (availableHeight / 2);
+
+              _xPosition = _clampPosition(dx, maxRange);
+              _yPosition = _clampPosition(dy, maxRange);
+            });
           },
           child: Container(
             height: availableHeight,
@@ -51,16 +86,6 @@ class _TrackPadState extends State<TrackPad> {
         ),
       ),
     );
-  }
-
-  void _updatePosition(Offset position, double availableWidth, double availableHeight) {
-    setState(() {
-      double dx = position.dx - (availableWidth / 2);
-      double dy = -position.dy + (availableHeight / 2);
-
-      _xPosition = _clampPosition(dx, maxRange);
-      _yPosition = _clampPosition(dy, maxRange);
-    });
   }
 
   double _clampPosition(double value, double maxRange) {
