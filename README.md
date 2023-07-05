@@ -20,14 +20,14 @@
 
 ## 🔧 Languages Used
   <p align="left"> 
-      <a href="https://flutter.dev/"><img width="38px" src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png"/></a>
       <a href="https://www.python.org/"><img width="45px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png"/></a>
+    <a href="https://dart.dev" target="_blank"><img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/>
   </p>
   
 ## 🔨 Tools
   <p align="left"> 
     <a href="https://code.visualstudio.com/" target="_blank"><img src="https://img.icons8.com/color/51/null/visual-studio-code-2019.png"/></a>
-    <a href="https://dart.dev" target="_blank"><img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/>
+    <a href="https://flutter.dev/"><img width="38px" src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png"/></a>
     </a>
     <a href="https://www.figma.com/" target="_blank"><img src="https://img.icons8.com/fluency/48/null/figma.png"/></a>
     <a href="https://www.adobe.com/creativecloud.html" target="_blank"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
