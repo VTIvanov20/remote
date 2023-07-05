@@ -22,17 +22,19 @@
   <p align="left"> 
       <a href="https://flutter.dev/"><img width="38px" src="https://storage.googleapis.com/cms-storage-bucket/0dbfcc7a59cd1cf16282.png"/></a>
       <a href="https://www.python.org/"><img width="45px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/Python-logo-notext.svg/1869px-Python-logo-notext.svg.png"/></a>
-  </p> 
+  </p>
   
 ## 🔨 Tools
   <p align="left"> 
-    <a href="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/51/null/visual-studio-code-2019.png"/></a>
-    <a href="https://www.figma.com/"><img src="https://img.icons8.com/fluency/48/null/figma.png"/></a>
-     <a href="https://www.adobe.com/creativecloud.html"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
-    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
-    <a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
-    <a href="https://git-scm.com/"><img width="55px" src="https://img.icons8.com/material-outlined/256/github.png" alt="Github"/></a>
-  </p>   
+    <a href="https://code.visualstudio.com/" target="_blank"><img src="https://img.icons8.com/color/51/null/visual-studio-code-2019.png"/></a>
+    <a href="https://dart.dev" target="_blank"><img src="https://www.vectorlogo.zone/logos/dartlang/dartlang-icon.svg" alt="dart" width="40" height="40"/>
+    </a>
+    <a href="https://www.figma.com/" target="_blank"><img src="https://img.icons8.com/fluency/48/null/figma.png"/></a>
+    <a href="https://www.adobe.com/creativecloud.html" target="_blank"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
+    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint" target="_blank"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
+    <a href="https://git-scm.com/" target="_blank"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
+    <a href="https://git-scm.com/" target="_blank"><img width="55px" src="https://img.icons8.com/material-outlined/256/github.png" alt="Github"/></a>
+  </p>
  
 ## 🔧 Installation
 
