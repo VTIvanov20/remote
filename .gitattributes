@@ -11,6 +11,9 @@
 *.rb linguist-detectable=false
 *.kt linguist-detectable=false
 *.kts linguist-detectable=false
+*.txt linguist-detectable=false
+*.swift linguist-detectable=false
+Podfile linguist-detectable=false
 
 # Miscellaneous
 *.class
