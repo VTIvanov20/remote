@@ -1,51 +1,102 @@
-# Robotic Arm Controller Mobile App
+<h1 align="center">A modern controller for kinematics</h1>
+<br>
+<p align="center">
+  <img width="26%" src="https://cdn.discordapp.com/attachments/900689339179216926/1098508313131491388/Group_1.png">
+</p>
+<br>
 
-## Description
+<p align = "center">
+    <img alt="GitHub top language" src ="https://img.shields.io/github/languages/top/SYSolakov20/B11?style=for-the-badge">
+    <img alt="GitHub contributors" src="https://img.shields.io/github/contributors/SYSolakov20/B11?style=for-the-badge">
+    <img alt="Github languages count" src="https://img.shields.io/github/languages/count/SYSolakov20/B11?style=for-the-badge">
+    <img alt="GitHub repo size" src="https://img.shields.io/github/repo-size/SYSolakov20/B11?style=for-the-badge">
+    <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/SYSolakov20/B11?style=for-the-badge">
+</p>
+<br>
 
-This mobile app is designed to control a robotic arm using Flutter and Dart. The app provides an intuitive interface for users to interact with the robotic arm and perform various actions and movements.
+## 📋 Description
+  
+<p align="center">Our idea was to create an online platform for buying and selling recycled materials. This way the big companies that want to switch their materials and be more eco-friendly (so they keep the planet safe) can find, sell or re-use materials without poluting the Earth.</p>
 
-## Features
+## 🔧 Website Tech Stack 
+  <p align="left"> 
+      <a href="https://vuejs.org/"><img src="https://img.icons8.com/external-tal-revivo-color-tal-revivo/48/null/external-vuejs-an-open-source-javascript-framework-for-building-user-interfaces-and-single-page-applications-logo-color-tal-revivo.png"/></a>
+      <a href="https://www.typescriptlang.org/"><img src="https://img.icons8.com/fluency/55/null/typescript--v1.png"/></a>
+      <a href="https://html.com/html5/"><img src="https://img.icons8.com/color/55/null/html-5--v1.png"/></a> 
+      <a href="https://sass-lang.com/"><img src="https://img.icons8.com/color/55/null/sass.png"/></a>
+  </p> 
+  
+  
+## 🔗 DB & Server Tech Stack 
+  <p align="left"> 
+    <a href="https://www.prisma.io/"><img src="https://img.icons8.com/ios/50/null/prisma-orm.png"/></a>
+    <a href="https://www.postgresql.org/"><img src="https://img.icons8.com/color/48/null/postgreesql.png"/></a>
+    <a href="https://expressjs.com/"><img src="https://cdn.discordapp.com/attachments/900689339179216926/1093035146963329084/image_6.png"/></a>
+   
+  </p> 
+  
+## 🔨 Tools
+  <p align="left"> 
+    <a href="https://code.visualstudio.com/"><img src="https://img.icons8.com/color/51/null/visual-studio-code-2019.png"/></a>
+    <a href="https://www.figma.com/"><img src="https://img.icons8.com/fluency/48/null/figma.png"/></a>
+     <a href="https://www.adobe.com/creativecloud.html"><img src="https://www.adobe.com/content/dam/shared/images/product-icons/svg/creative-cloud.svg" alt="adobe creative cloud" width=48px /></a>
+    <a href="https://www.microsoft.com/en-us/microsoft-365/powerpoint"><img src="https://img.icons8.com/fluency/48/000000/microsoft-powerpoint-2019.png" alt="MS PowerPoint logo" width=48px />
+    <a href="https://git-scm.com/"><img src="https://img.icons8.com/color/48/000000/git.png" alt="Git"/></a>
+    <a href="https://git-scm.com/"><img width="7%" src="https://img.icons8.com/material-outlined/256/github.png" alt="Github"/></a>
+  </p>   
+ 
+## 🔧 Installation
 
-- **Real-time Control**: The app allows users to control the robotic arm in real-time, enabling precise movements and actions.
+```
+You can download our project by using the green "Code" button.
 
-- **Gesture Control**: Users can utilize gesture-based controls to manipulate the robotic arm, making it easy and intuitive to operate.
+Or by pasting the following code in your CMD:
+git clone https://github.com/SYSolakov20/B11.git
+```
 
-- **Multiple Control Modes**: The app offers different control modes, such as joystick control, touch control, and voice control, providing flexibility to users based on their preferences.
+## 🖥 Team Members
+* **Zhanet Petkova** - *Scrum trainer* 
+* **Alexander Manov** - *Back-end developer* 
+* **Simeon Boev** - *Back-end developer* 
+* **Valeri Ivanov** - *Front-end developer*
+* **Soner Solakov** - *Designer & Front-end developer*
 
-- **Movement Presets**: Users can save and recall movement presets for the robotic arm, making it convenient to perform repetitive tasks or predefined movements.
+ ## 🎬 Demo of the project 
+  
+  <p align="center">
+  <img src="https://media.discordapp.net/attachments/900689339179216926/1098570733405339668/Studio_Display_Front_View_Mockup.png?width=1358&height=1044" width = "900px" >
+  </p>
 
-- **Status Monitoring**: The app displays real-time feedback on the status of the robotic arm, including its position, orientation, and any error or warning messages.
+## ⚙ Website Access
 
-- **Settings and Customization**: Users can customize various settings of the app, such as control sensitivity, gesture recognition, and communication parameters with the robotic arm.
+*You can access our website by pasting this link into your browser.*
+```
+https://gray-mushroom-0dcc8a703.2.azurestaticapps.net/
+```
 
-## Tech Stack
+*To run the website on your local device follow these steps:*
 
-The mobile app is developed using the following technologies:
+```
+git clone https://github.com/SYSolakov20/B11.git
+```
+*Navigate to the proper directory*
 
-- **Flutter**: A cross-platform framework for building mobile apps using the Dart programming language.
+```
+cd b11
 
-- **Dart**: The programming language used for developing the app logic and functionality.
+cd src
+```
+*Install node packages*
 
-## Installation
+```
+npm install
+```
+*Run on local server*
 
-To install and run the mobile app on your device, follow these steps:
-
-# STEPS GO HERE
-
-The app will be installed and launched on your device/emulator.
-
-## Documentation
-
-For detailed documentation and usage instructions, please refer to the [User Guide](user-guide.md).
-
-## Demo
-
-Check out the following video for a demo of the app in action: [Demo Video](https://your-demo-video-url)
-
-## Contributions
-
-Contributions to the app are welcome! If you find any issues or have suggestions for improvements, please feel free to open an issue or submit a pull request.
-
-## License
-
-This project is licensed under the [MIT License](LICENSE).
+```
+npm run dev
+```
+<h3>Enjoy the project!</h3>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&height=120&section=footer&&color=808080" width="1200px"/>
+</p>
