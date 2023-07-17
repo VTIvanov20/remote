@@ -60,8 +60,8 @@ class _TrackPadState extends State<TrackPad> {
               double dx = details.localPosition.dx - (availableWidth / 2);
               double dy = -details.localPosition.dy + (availableHeight / 2);
 
-              _xPosition = _clampPosition(dx, maxRange);
-              _yPosition = _clampPosition(dy, maxRange);
+              _xPosition = _clampPosition(dx, maxRange).roundToDouble();
+              _yPosition = _clampPosition(dy, maxRange).roundToDouble();
             });
           },
           child: Container(

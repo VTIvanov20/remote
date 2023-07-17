@@ -49,9 +49,7 @@ class _AppContentsState extends State<AppContents> {
   Widget build(BuildContext context) {
     return ListView(
       children: [
-        const Padding(
-          padding: EdgeInsets.only(top: 60),
-          child: Text(
+        const Text(
             "Choose a robot",
             style: TextStyle(
               fontFamily: "Montserrat",
@@ -61,7 +59,6 @@ class _AppContentsState extends State<AppContents> {
             ),
             textAlign: TextAlign.center,
           ),
-        ),
         const SizedBox(height: 20),
         const OptionBar(),
         const SizedBox(height: 20),
@@ -75,7 +72,6 @@ class _AppContentsState extends State<AppContents> {
           child: TrackPad(
             onPositionSelected: (x, y, z) {
               sendCommand('position', x, y, z);
-              print(x);
             },
           ),
         ),
