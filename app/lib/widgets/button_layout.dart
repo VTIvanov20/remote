@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/components/z_button.dart';
 import 'package:movie_app/widgets/components/z_parent.dart';
 import 'package:movie_app/widgets/components/action_button.dart';
-import 'colors.dart';
+import 'package:movie_app/widgets/components/routine_button.dart';
 
 class ButtonLayout extends StatelessWidget {
   const ButtonLayout({Key? key}) : super(key: key);
@@ -19,40 +19,18 @@ class ButtonLayout extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                onTap: () => print("tapped 1"),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                    width: screenWidth * 0.15,
-                    height: screenWidth * 0.15,
-                    color: AppColors.inputGray,
-                    child: const Center(
-                      child: Text(
-                        '1',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
+              RoutineButton(
+                onTap: () {
+                  print("clicked 1");
+                }, 
+                buttonText: '1'
               ),
               const SizedBox(height: 10),
-              GestureDetector(
-                onTap: () => print("tapped 2"),
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                    width: screenWidth * 0.15,
-                    height: screenWidth * 0.15,
-                    color: AppColors.inputGray,
-                    child: const Center(
-                      child: Text(
-                        '2',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
-                      ),
-                    ),
-                  ),
-                ),
+              RoutineButton(
+                onTap: () {
+                  print("clicked 2");
+                }, 
+                buttonText: '2'
               ),
             ],
           ),
@@ -80,7 +58,6 @@ class ButtonLayout extends StatelessWidget {
                         icon: Icons.arrow_drop_up_outlined,
                         tooltip: "Increase Z by 1", 
                         onPressed: () {
-                          print("up");
                         },
                         top: 5,
                         left: 5,
@@ -89,7 +66,6 @@ class ButtonLayout extends StatelessWidget {
                         icon: Icons.arrow_drop_down_outlined,
                         tooltip: "Decrease Z by 1", 
                         onPressed: () {
-                          print("down");
                         },
                         bottom: 5,
                         left: 5,
