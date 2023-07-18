@@ -9,32 +9,12 @@ class TrackPad extends StatefulWidget {
 
   @override
   _TrackPadState createState() => _TrackPadState();
-
-  void _handlePanUpdate(DragUpdateDetails details) {
-    final x = details.delta.dx;
-    final y = details.delta.dy;
-    const z = 0.0;
-
-    sendCoordinates(x, y, z);
-
-    onPositionSelected(x, y, z);
-  }
-
-  Future<void> sendCoordinates(double x, double y, double z) async {
-    final socket = await Socket.connect('localhost', 12345);
-    print('Connected to Python script.');
-
-    final data = 'position,$x,$y,$z';
-    socket.write(data);
-
-    socket.close();
-  }
 }
 
 class _TrackPadState extends State<TrackPad> {
   double _xPosition = 0.0;
   double _yPosition = 0.0;
-  double maxRange = 150.0;
+  double maxRange = 100.0;
 
   @override
   Widget build(BuildContext context) {
@@ -62,6 +42,25 @@ class _TrackPadState extends State<TrackPad> {
 
               _xPosition = _clampPosition(dx, maxRange).roundToDouble();
               _yPosition = _clampPosition(dy, maxRange).roundToDouble();
+
+              var xMin = -100;
+              var xMax = 100;
+              var finalXMin = 120;
+              var finalXMax = 340;
+
+              var yMin = -100;
+              var yMax = 100;
+              var finalYMin = -280;
+              var finalYMax = 280;
+
+              var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
+              var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
+
+              var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
+              var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+
+              var posList = [finalXPosition, finalYPosition];
+              print(posList);
             });
           },
           child: Container(
