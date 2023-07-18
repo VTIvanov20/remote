@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'colors.dart';
+import 'package:movie_app/widgets/components/link_button.dart';
 
 final Uri _repoUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app');
 final Uri _bugUrl =
@@ -17,33 +17,9 @@ class OptionBar extends StatelessWidget {
       padding: EdgeInsets.symmetric(vertical: 20),
       child: Row(
         children: <Widget>[
-          Expanded(
-            child: IconButton(
-              icon: Icon(
-                Icons.bug_report_outlined,
-                color: AppColors.icons,
-              ),
-              onPressed: _launchRepoUrl,
-            ),
-          ),
-          Expanded(
-            child: IconButton(
-              icon: Icon(
-                Icons.bug_report_outlined,
-                color: AppColors.icons,
-              ),
-              onPressed: _launchBugUrl,
-            ),
-          ),
-          Expanded(
-            child: IconButton(
-              icon: Icon(
-                Icons.bug_report_outlined,
-                color: AppColors.icons,
-              ),
-              onPressed: _launchWikiUrl,
-            ),
-          ),
+          LinkIcon(icon: Icons.bug_report_outlined, onPressed: _launchRepoUrl),
+          LinkIcon(icon: Icons.bug_report_outlined, onPressed: _launchBugUrl),
+          LinkIcon(icon: Icons.bug_report_outlined, onPressed: _launchWikiUrl)
         ],
       ),
     );
