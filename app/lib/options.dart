@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'colors.dart';
+import 'widgets/colors.dart';
 
 final Uri _repoUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app');
 final Uri _bugUrl =
