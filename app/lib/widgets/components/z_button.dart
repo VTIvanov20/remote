@@ -14,7 +14,7 @@ class ZButton extends StatelessWidget {
     required this.onPressed,
     required this.left,
     this.top,
-    this.bottom,
+    this.bottom
   });
 
   @override
@@ -25,6 +25,7 @@ class ZButton extends StatelessWidget {
       left: left,
       child: IconButton(
         color: Colors.greenAccent,
+        highlightColor: Colors.amberAccent,
         icon: Icon(icon),
         tooltip: tooltip,
         onPressed: onPressed,

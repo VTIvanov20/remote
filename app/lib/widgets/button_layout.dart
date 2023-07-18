@@ -61,9 +61,9 @@ class ButtonLayout extends StatelessWidget {
                         onPressed: () {
                           if (zPosition < 180) {
                             zPosition++;
-                            print("up, current pos: $zPosition");
+                            print("up, current z: $zPosition");
                           } else {
-                            print("Can't go higher than 10");
+                            print("Can't go higher than 180");
                           }
                         },
                         top: 5,
@@ -71,27 +71,13 @@ class ButtonLayout extends StatelessWidget {
                       ),
                       ZButton(
                         icon: Icons.arrow_drop_down_outlined,
-                        tooltip: "Decrease Z by 1",
+                        tooltip: "Decrease Z by 1", 
                         onPressed: () {
                           if (zPosition > -180) {
                             zPosition--;
                             print("down, current z: $zPosition");
                           } else {
                             print("Can't go lower than -180");
-                          }
-                        },
-                        bottom: 5,
-                        left: 5,
-                      ),
-                      ZButton(
-                        icon: Icons.arrow_drop_down_outlined,
-                        tooltip: "Decrease Z by 1", 
-                        onPressed: () {
-                          if (zPosition > -10) {
-                            zPosition--;
-                            print("down, current z: $zPosition");
-                          } else {
-                            print("Can't go lower than -10");
                           }
                         },
                         bottom: 5,
