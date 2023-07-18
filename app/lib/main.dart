@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/track_pad.dart';
-import 'package:movie_app/options.dart';
-import 'package:movie_app/button_layout.dart';
-import 'colors.dart';
+import 'package:movie_app/widgets/track_pad.dart';
+import 'package:movie_app/widgets/options.dart';
+import 'package:movie_app/widgets/button_layout.dart';
+import 'widgets/colors.dart';
 import 'dart:io';
 
 void main() => runApp(const ArmController());
