@@ -48,6 +48,7 @@ class _AppContentsState extends State<AppContents> {
   @override
   Widget build(BuildContext context) {
     return ListView(
+      physics: const NeverScrollableScrollPhysics(),
       children: [
         const Text(
             "Welcome",

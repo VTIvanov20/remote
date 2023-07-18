@@ -58,6 +58,7 @@ class ButtonLayout extends StatelessWidget {
                         icon: Icons.arrow_drop_up_outlined,
                         tooltip: "Increase Z by 1", 
                         onPressed: () {
+                          print("up");
                         },
                         top: 5,
                         left: 5,
@@ -66,6 +67,7 @@ class ButtonLayout extends StatelessWidget {
                         icon: Icons.arrow_drop_down_outlined,
                         tooltip: "Decrease Z by 1", 
                         onPressed: () {
+                          print("down");
                         },
                         bottom: 5,
                         left: 5,
