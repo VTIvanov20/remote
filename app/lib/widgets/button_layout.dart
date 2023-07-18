@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/widgets/components/z_button.dart';
+import 'package:movie_app/widgets/components/z_parent.dart';
+import 'package:movie_app/widgets/components/action_button.dart';
 import 'colors.dart';
 
 class ButtonLayout extends StatelessWidget {
@@ -54,27 +57,11 @@ class ButtonLayout extends StatelessWidget {
             ],
           ),
           const SizedBox(width: 10),
-          Flexible(
+          const Flexible(
             flex: 1,
             child: Column(
               children: [
-                GestureDetector(
-                  onTap: () => print("tapped 3"),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(100),
-                    child: Container(
-                      width: screenWidth * 0.25,
-                      height: screenWidth * 0.25,
-                      color: AppColors.inputGray,
-                      child: const Center(
-                        child: Text(
-                          '3',
-                          style: TextStyle(fontSize: 18, color: Colors.white),
-                        ),
-                      ),
-                    ),
-                  ),
-                ),
+                ActionButton()
               ],
             ),
           ),
@@ -88,42 +75,24 @@ class ButtonLayout extends StatelessWidget {
                   height: screenWidth * 0.3,
                   child: Stack(
                     children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(100),
-                        child: Container(
-                          color: AppColors.inputBlack,
-                          child: const Center(
-                            child: Text(
-                              'Z',
-                              style: TextStyle(fontSize: 18, color: Colors.white),
-                            ),
-                          ),
-                        ),
-                      ),
-                      Positioned(
+                      const ZParent(),
+                      ZButton(
+                        icon: Icons.arrow_drop_up_outlined,
+                        tooltip: "Increase Z by 1", 
+                        onPressed: () {
+                          print("up");
+                        },
                         top: 5,
                         left: 5,
-                        // left: 10,
-                        child: IconButton(
-                          color: Colors.greenAccent,
-                          icon: const Icon(Icons.arrow_drop_up_outlined),
-                          tooltip: 'Increase Z by 1',
-                          onPressed: () {
-                            print("up");
-                          },
-                        ),
                       ),
-                      Positioned(
+                      ZButton(
+                        icon: Icons.arrow_drop_down_outlined,
+                        tooltip: "Decrease Z by 1", 
+                        onPressed: () {
+                          print("down");
+                        },
                         bottom: 5,
                         left: 5,
-                        child: IconButton(
-                          color: Colors.greenAccent,
-                          icon: const Icon(Icons.arrow_drop_down_outlined),
-                          tooltip: 'Decrease Z by 1',
-                          onPressed: () {
-                            print("down");
-                          },
-                        ),
                       ),
                     ],
                   ),
