@@ -39,7 +39,7 @@ class _TrackPadState extends State<TrackPad> {
   @override
   Widget build(BuildContext context) {
     final availableWidth = MediaQuery.of(context).size.width - 40;
-    final availableHeight = MediaQuery.of(context).size.height;
+    final availableHeight = MediaQuery.of(context).size.height / 1.75;
 
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),

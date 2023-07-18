@@ -50,7 +50,7 @@ class _AppContentsState extends State<AppContents> {
     return ListView(
       children: [
         const Text(
-            "Choose a robot",
+            "Welcome",
             style: TextStyle(
               fontFamily: "Montserrat",
               fontSize: 17.5,
@@ -59,9 +59,9 @@ class _AppContentsState extends State<AppContents> {
             ),
             textAlign: TextAlign.center,
           ),
-        const SizedBox(height: 20),
+        // const SizedBox(height: 20),
         const OptionBar(),
-        const SizedBox(height: 20),
+        // const SizedBox(height: 20),
         GestureDetector(
           onPanUpdate: (details) {
             setState(() {
@@ -75,7 +75,7 @@ class _AppContentsState extends State<AppContents> {
             },
           ),
         ),
-        const SizedBox(height: 20),
+        // const SizedBox(height: 20),
         const ButtonLayout(),
       ],
     );

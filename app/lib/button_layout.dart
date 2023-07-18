@@ -21,8 +21,8 @@ class ButtonLayout extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(
-                    width: screenWidth * 0.1,
-                    height: screenWidth * 0.1,
+                    width: screenWidth * 0.15,
+                    height: screenWidth * 0.15,
                     color: AppColors.inputGray,
                     child: const Center(
                       child: Text(
@@ -39,8 +39,8 @@ class ButtonLayout extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(100),
                   child: Container(
-                    width: screenWidth * 0.1,
-                    height: screenWidth * 0.1,
+                    width: screenWidth * 0.15,
+                    height: screenWidth * 0.15,
                     color: AppColors.inputGray,
                     child: const Center(
                       child: Text(
@@ -53,7 +53,7 @@ class ButtonLayout extends StatelessWidget {
               ),
             ],
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 10),
           Flexible(
             flex: 1,
             child: Column(
@@ -63,8 +63,8 @@ class ButtonLayout extends StatelessWidget {
                   child: ClipRRect(
                     borderRadius: BorderRadius.circular(100),
                     child: Container(
-                      width: screenWidth * 0.2,
-                      height: screenWidth * 0.2,
+                      width: screenWidth * 0.25,
+                      height: screenWidth * 0.25,
                       color: AppColors.inputGray,
                       child: const Center(
                         child: Text(
@@ -78,23 +78,54 @@ class ButtonLayout extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(width: 20),
+          const SizedBox(width: 10),
           Flexible(
             flex: 1,
             child: Column(
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(100),
-                  child: Container(
-                    width: screenWidth * 0.1,
-                    height: screenWidth * 0.233333,
-                    color: AppColors.inputBlack,
-                    child: const Center(
-                      child: Text(
-                        '4',
-                        style: TextStyle(fontSize: 18, color: Colors.white),
+                SizedBox(
+                  width: screenWidth * 0.15,
+                  height: screenWidth * 0.3,
+                  child: Stack(
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(100),
+                        child: Container(
+                          color: AppColors.inputBlack,
+                          child: const Center(
+                            child: Text(
+                              'Z',
+                              style: TextStyle(fontSize: 18, color: Colors.white),
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
+                      Positioned(
+                        top: 5,
+                        left: 5,
+                        // left: 10,
+                        child: IconButton(
+                          color: Colors.greenAccent,
+                          icon: const Icon(Icons.arrow_drop_up_outlined),
+                          tooltip: 'Increase Z by 1',
+                          onPressed: () {
+                            print("up");
+                          },
+                        ),
+                      ),
+                      Positioned(
+                        bottom: 5,
+                        left: 5,
+                        child: IconButton(
+                          color: Colors.greenAccent,
+                          icon: const Icon(Icons.arrow_drop_down_outlined),
+                          tooltip: 'Decrease Z by 1',
+                          onPressed: () {
+                            print("down");
+                          },
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
