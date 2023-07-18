@@ -10,6 +10,7 @@ class ButtonLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
+    int zPosition = 0;
 
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
@@ -56,18 +57,42 @@ class ButtonLayout extends StatelessWidget {
                       const ZParent(),
                       ZButton(
                         icon: Icons.arrow_drop_up_outlined,
-                        tooltip: "Increase Z by 1", 
+                        tooltip: "Increase Z by 1",
                         onPressed: () {
-                          print("up");
+                          if (zPosition < 180) {
+                            zPosition++;
+                            print("up, current pos: $zPosition");
+                          } else {
+                            print("Can't go higher than 10");
+                          }
                         },
                         top: 5,
                         left: 5,
                       ),
                       ZButton(
                         icon: Icons.arrow_drop_down_outlined,
+                        tooltip: "Decrease Z by 1",
+                        onPressed: () {
+                          if (zPosition > -180) {
+                            zPosition--;
+                            print("down, current z: $zPosition");
+                          } else {
+                            print("Can't go lower than -180");
+                          }
+                        },
+                        bottom: 5,
+                        left: 5,
+                      ),
+                      ZButton(
+                        icon: Icons.arrow_drop_down_outlined,
                         tooltip: "Decrease Z by 1", 
                         onPressed: () {
-                          print("down");
+                          if (zPosition > -10) {
+                            zPosition--;
+                            print("down, current z: $zPosition");
+                          } else {
+                            print("Can't go lower than -10");
+                          }
                         },
                         bottom: 5,
                         left: 5,
