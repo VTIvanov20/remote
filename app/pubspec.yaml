@@ -18,6 +18,7 @@ dependencies:
   dartpy: ^0.0.1+4
   dartdoc: ^6.2.2
   url_launcher: ^6.1.11
+  path_provider: ^2.0.15
   
 
 dev_dependencies:
