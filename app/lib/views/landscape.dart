@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/track_pad.dart';
 import 'package:movie_app/widgets/options.dart';
 import 'package:movie_app/widgets/button_layout.dart';
+import 'package:movie_app/widgets/popup.dart';
 import 'dart:io';
-import 'package:movie_app/widgets/colors.dart';
 
 class LandscapeView extends StatefulWidget {
   const LandscapeView({Key? key});
@@ -31,16 +31,15 @@ class _LandscapeViewState extends State<LandscapeView> {
 
   return ListView(
       children: [
-        const Text(
-            "Welcome",
-            style: TextStyle(
-              fontFamily: "Montserrat",
-              fontSize: 17.5,
-              fontWeight: FontWeight.bold,
-              color: AppColors.text,
+        Align(
+          alignment: Alignment.topRight,
+          child: CustomPopupMenuButton(
+              onItemSelected: (String selectedItem) {
+                // Handle the selected item here
+                print('Selected item: $selectedItem');
+              },
             ),
-            textAlign: TextAlign.center,
-          ),
+        ),
         const OptionBar(),
         GestureDetector(
           onPanUpdate: (details) {
