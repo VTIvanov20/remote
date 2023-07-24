@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/track_pad_wrapper.dart';
-import 'package:movie_app/widgets/options.dart';
+// import 'package:movie_app/widgets/options.dart';
+import 'package:movie_app/widgets/input.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/colors.dart';
 import 'dart:io';
@@ -42,7 +43,8 @@ class _PortraitViewState extends State<PortraitView> {
             ),
             textAlign: TextAlign.center,
           ),
-        const OptionBar(),
+        // const OptionBar(),
+        const InputField(),
         TrackPadWrapper(),
         const ButtonLayout(),
       ],
