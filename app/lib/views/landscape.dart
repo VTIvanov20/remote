@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widgets/track_pad.dart';
+import 'package:movie_app/widgets/track_pad_wrapper.dart';
 import 'package:movie_app/widgets/options.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/popup.dart';
@@ -41,20 +41,12 @@ class _LandscapeViewState extends State<LandscapeView> {
             ),
         ),
         const OptionBar(),
-        GestureDetector(
-          onPanUpdate: (details) {
-            setState(() {
-              x += details.delta.dx;
-              y += details.delta.dy;
-            });
-          },
-          child: TrackPad(
-            onPositionSelected: (x, y, z) {
-              sendCommand('position', x, y, z);
-            },
-          ),
+        Row(
+          children: [
+            const Expanded(child: ButtonLayout()),
+            Expanded(child: TrackPadWrapper()),
+          ],
         ),
-        const ButtonLayout(),
       ],
     );
   }

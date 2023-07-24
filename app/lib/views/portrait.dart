@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widgets/track_pad.dart';
+import 'package:movie_app/widgets/track_pad_wrapper.dart';
 import 'package:movie_app/widgets/options.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/colors.dart';
@@ -42,23 +42,8 @@ class _PortraitViewState extends State<PortraitView> {
             ),
             textAlign: TextAlign.center,
           ),
-        // const SizedBox(height: 20),
         const OptionBar(),
-        // const SizedBox(height: 20),
-        GestureDetector(
-          onPanUpdate: (details) {
-            setState(() {
-              x += details.delta.dx;
-              y += details.delta.dy;
-            });
-          },
-          child: TrackPad(
-            onPositionSelected: (x, y, z) {
-              sendCommand('position', x, y, z);
-            },
-          ),
-        ),
-        // const SizedBox(height: 20),
+        TrackPadWrapper(),
         const ButtonLayout(),
       ],
     );

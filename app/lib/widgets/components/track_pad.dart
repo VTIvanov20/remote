@@ -2,7 +2,7 @@ import 'dart:convert';
 import 'dart:io';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
-import 'colors.dart';
+import '../colors.dart';
 
 class TrackPad extends StatefulWidget {
   final Function(double, double, double) onPositionSelected;
