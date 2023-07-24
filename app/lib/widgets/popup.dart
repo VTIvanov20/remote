@@ -3,15 +3,13 @@ import 'package:movie_app/widgets/components/link_button.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 final Uri _repoUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app');
-final Uri _bugUrl =
-    Uri.parse('https://github.com/VTIvanov20/flutter-app/issues');
-final Uri _wikiUrl =
-    Uri.parse('https://github.com/VTIvanov20/flutter-app/wiki');
+final Uri _bugUrl  = Uri.parse('https://github.com/VTIvanov20/flutter-app/issues');
+final Uri _wikiUrl = Uri.parse('https://github.com/VTIvanov20/flutter-app/wiki');
 
 class CustomPopupMenuButton extends StatelessWidget {
   final Function(String) onItemSelected;
 
-  CustomPopupMenuButton({required this.onItemSelected});
+  const CustomPopupMenuButton({super.key, required this.onItemSelected});
 
   @override
   Widget build(BuildContext context) {
@@ -25,19 +23,19 @@ class CustomPopupMenuButton extends StatelessWidget {
       },
       itemBuilder: (BuildContext context) => <PopupMenuEntry<String>>[
         _buildPopupMenuItem(
-          value: 'item1',
+          value: 'Repo Button',
           icon: Icons.code_rounded,
-          text: 'repo',
+          text: 'Source',
         ),
         _buildPopupMenuItem(
-          value: 'item2',
+          value: 'Bug Report Button',
           icon: Icons.bug_report,
-          text: 'bug',
+          text: 'Bug Report',
         ),
         _buildPopupMenuItem(
-          value: 'item3',
+          value: 'Wiki Button',
           icon: Icons.info,
-          text: 'wiki',
+          text: 'Wiki',
         ),
       ],
     );
@@ -56,15 +54,15 @@ class CustomPopupMenuButton extends StatelessWidget {
             icon: icon,
             onPressed: () {
               switch (text){
-                case "repo": {
+                case "Source": {
                   _launchRepoUrl();
                 }
                 break;
-                case "bug": {
+                case "Bug Report": {
                   _launchBugUrl();
                 }
                 break;
-                case "wiki": {
+                case "Wiki": {
                   _launchWikiUrl();
                 }
                 break;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/track_pad_wrapper.dart';
-import 'package:movie_app/widgets/options.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/popup.dart';
 import 'dart:io';
@@ -40,7 +39,7 @@ class _LandscapeViewState extends State<LandscapeView> {
               },
             ),
         ),
-        const OptionBar(),
+        // const OptionBar(),
         Row(
           children: [
             const Expanded(child: ButtonLayout()),

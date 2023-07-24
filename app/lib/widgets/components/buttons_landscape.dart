@@ -55,10 +55,9 @@ class LandscapeButtons extends StatelessWidget {
                             print("up, current z: $zPosition");
                           } else {
                             print("Can't go higher than 180");
-                          }
-                        },
-                        top: 5,
+                          }                        },
                         left: 5,
+                        top: 5, // Or you can use bottom: 5,
                       ),
                       ZButton(
                         icon: Icons.arrow_drop_down_outlined,

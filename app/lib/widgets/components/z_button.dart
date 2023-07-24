@@ -8,13 +8,13 @@ class ZButton extends StatelessWidget {
   final double? top;
   final double? bottom;
 
-  const ZButton({
+  const ZButton({super.key, 
     required this.icon,
     required this.tooltip,
     required this.onPressed,
     required this.left,
     this.top,
-    this.bottom
+    this.bottom,
   });
 
   @override
@@ -23,13 +23,16 @@ class ZButton extends StatelessWidget {
       top: top,
       bottom: bottom,
       left: left,
-      child: IconButton(
-        color: Colors.greenAccent,
-        highlightColor: Colors.amberAccent,
-        icon: Icon(icon),
-        tooltip: tooltip,
-        onPressed: onPressed,
+      child: Center(
+        child: IconButton(
+          color: Colors.greenAccent,
+          highlightColor: Colors.amberAccent,
+          icon: Icon(icon),
+          tooltip: tooltip,
+          onPressed: onPressed,
+        ),
       ),
     );
   }
 }
+
