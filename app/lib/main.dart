@@ -38,19 +38,6 @@ class AppContents extends StatefulWidget {
 }
 
 class _AppContentsState extends State<AppContents> {
-  double x = 0;
-  double y = 0;
-
-  Future<void> sendCommand(String command, double x, double y, double z) async {
-    final socket = await Socket.connect('localhost', 12345);
-    print('Connected to Python script.');
-
-    final data = '$command,$x,$y,$z';
-    socket.write(data);
-
-    socket.close();
-  }
-
   @override
   Widget build(BuildContext context) {
     Orientation orientation = MediaQuery.of(context).orientation;

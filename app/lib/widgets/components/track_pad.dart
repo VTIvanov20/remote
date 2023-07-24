@@ -57,10 +57,8 @@ class _TrackPadState extends State<TrackPad> {
               var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
               var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
 
-              var finalXPosition =
-                  (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
-              var finalYPosition =
-                  (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+              var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
+              var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
 
               var posList = [finalXPosition, finalYPosition];
               print(posList);
