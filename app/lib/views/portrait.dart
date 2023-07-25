@@ -29,25 +29,32 @@ class _PortraitViewState extends State<PortraitView> {
 
   @override
   Widget build(BuildContext context) {
-
-  return ListView(
-      physics: const NeverScrollableScrollPhysics(),
-      children: [
-        const Text(
-            "Welcome",
-            style: TextStyle(
-              fontFamily: "Montserrat",
-              fontSize: 17.5,
-              fontWeight: FontWeight.bold,
-              color: AppColors.text,
-            ),
-            textAlign: TextAlign.center,
-          ),
-        // const OptionBar(),
-        const InputField(),
-        TrackPadWrapper(),
-        const ButtonLayout(),
-      ],
+    return GestureDetector(
+      onTap: () {
+        FocusScopeNode currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: ListView(
+          physics: const NeverScrollableScrollPhysics(),
+          children: [
+            const Text(
+                "Welcome",
+                style: TextStyle(
+                  fontFamily: "Montserrat",
+                  fontSize: 17.5,
+                  fontWeight: FontWeight.bold,
+                  color: AppColors.text,
+                ),
+                textAlign: TextAlign.center,
+              ),
+            // const OptionBar(),
+            const InputField(),
+            TrackPadWrapper(),
+            const ButtonLayout(),
+          ],
+        ),
     );
   }
 }
