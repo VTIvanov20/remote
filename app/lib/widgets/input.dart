@@ -1,70 +1,77 @@
-import 'package:flutter/material.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
+// import 'package:flutter/material.dart';
+// import 'package:web_socket_channel/web_socket_channel.dart';
+// import 'package:web_socket_channel/io.dart';
 
-class InputField extends StatefulWidget {
-  const InputField({super.key});
+// class InputField extends StatefulWidget {
+//   InputField({Key? key}) : super(key: key);
 
-  @override
-  State<InputField> createState() => _InputFieldState();
-}
+//   @override
+//   State<InputField> createState() => _InputFieldState();
+// }
 
-class _InputFieldState extends State<InputField> {
-  final TextEditingController _controller = TextEditingController();
-  final _channel = WebSocketChannel.connect(
-    Uri.parse('wss://echo.websocket.events'),
-  );
-  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+// class _InputFieldState extends State<InputField> {
+//   final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
 
-  @override
-  Widget build(BuildContext context) {
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          TextFormField(
-            controller: _controller,
-            style: const TextStyle(color: Colors.white),
-            decoration: const InputDecoration(
-              hintText: 'Enter your email',
-              fillColor: Colors.white
-            ),
-            validator: (String? value) {
-              if (value == null || value.isEmpty) {
-                return 'Please enter some text';
-              }
-              return null;
-            },
-          ),
-          const SizedBox(height: 24),
-          StreamBuilder(
-            stream: _channel.stream,
-            builder: (context, snapshot) {
-              return Text(snapshot.hasData ? '${snapshot.data}' : '', style: const TextStyle(color: Colors.white));
-            }
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0),
-            child: ElevatedButton(
-              onPressed: _sendMessage,
-              child: const Text('Submit', style: TextStyle(color: Colors.white)),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+//   TextEditingController _controller = TextEditingController();
 
-  void _sendMessage() {
-    if (_controller.text.isNotEmpty) {
-      _channel.sink.add(_controller.text);
-    }
-  }
+//   @override
+//   void dispose() {
+//     channel.sink.close();
+//     super.dispose();
+//   }
 
-  @override
-  void dispose() {
-    _channel.sink.close();
-    _controller.dispose();
-    super.dispose();
-  }
-}
+//   void _sendMessage(String message) {
+//     if (message.isNotEmpty) {
+//       channel.sink.add(message);
+//       _controller.clear();
+//     }
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return Column(
+//       crossAxisAlignment: CrossAxisAlignment.start,
+//       children: <Widget>[
+//         StreamBuilder(
+//             stream: channel.stream,
+//             builder: (context, snapshot) {
+//               return Text(snapshot.hasData ? '${snapshot.data}' : '');
+//             },
+//           ),
+//           TextField(
+//             controller: _controller,
+//             decoration: const InputDecoration(labelText: 'Send a message'),
+//             onSubmitted: _sendMessage,
+//           ),
+//         // TextFormField(
+//         //   controller: _controller,
+//         //   style: const TextStyle(color: Colors.white),
+//         //   decoration: const InputDecoration(
+//         //     hintText: 'Enter your email',
+//         //     fillColor: Colors.white,
+//         //   ),
+//         //   validator: (String? value) {
+//         //     if (value == null || value.isEmpty) {
+//         //       return 'Please enter some text';
+//         //     }
+//         //     return null;
+//         //   },
+//         // ),
+//         // const SizedBox(height: 24),
+//         // StreamBuilder(
+//         //   stream: channel.stream,
+//         //   builder: (context, snapshot) {
+//         //     return Text(snapshot.hasData ? '${snapshot.data}' : '', style: const TextStyle(color: Colors.white));
+//         //   },
+//         // ),
+//         // Padding(
+//         //   padding: const EdgeInsets.symmetric(vertical: 16.0),
+//         //   child: ElevatedButton(
+//         //     onPressed: _sendMessage,
+//         //     child: const Text('Submit', style: TextStyle(color: Colors.white)),
+//         //   ),
+//         // ),
+//       ],
+//     );
+//   }
+// }

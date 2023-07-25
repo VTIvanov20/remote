@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/track_pad_wrapper.dart';
 // import 'package:movie_app/widgets/options.dart';
-import 'package:movie_app/widgets/input.dart';
+// import 'package:movie_app/widgets/input.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/colors.dart';
-import 'dart:io';
+import 'package:web_socket_channel/io.dart';
 
 class PortraitView extends StatefulWidget {
   const PortraitView({Key? key});
@@ -14,19 +14,24 @@ class PortraitView extends StatefulWidget {
 }
 
 class _PortraitViewState extends State<PortraitView> {
-  double x = 0;
-  double y = 0;
+  final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
+  // final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
 
-  Future<void> sendCommand(String command, double x, double y, double z) async {
-    final socket = await Socket.connect('localhost', 12345);
-    print('Connected to Python script.');
+  TextEditingController _controller = TextEditingController();
 
-    final data = '$command,$x,$y,$z';
-    socket.write(data);
-
-    socket.close();
+  @override
+  void dispose() {
+    channel.sink.close();
+    super.dispose();
   }
 
+  void _sendMessage(String message) {
+    if (message.isNotEmpty) {
+      channel.sink.add(message);
+      _controller.clear();
+    }
+  }
+  
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -39,6 +44,25 @@ class _PortraitViewState extends State<PortraitView> {
       child: ListView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                StreamBuilder(
+                    stream: channel.stream,
+                    builder: (context, snapshot) {
+                      return Text(snapshot.hasData ? '${snapshot.data}' : '');
+                    },
+                  ),
+                  TextField(
+                    style: TextStyle(color: Colors.white),
+                    controller: _controller,
+                    decoration: const InputDecoration(labelText: 'Send a message'),
+                    onSubmitted: _sendMessage,
+                  ),
+              ],
+            ),
+            // InputField(),
+            // const OptionBar(),
             const Text(
                 "Welcome",
                 style: TextStyle(
@@ -49,8 +73,6 @@ class _PortraitViewState extends State<PortraitView> {
                 ),
                 textAlign: TextAlign.center,
               ),
-            // const OptionBar(),
-            const InputField(),
             TrackPadWrapper(),
             const ButtonLayout(),
           ],
