@@ -1,5 +1,6 @@
 import 'dart:convert';
 import 'dart:io';
+import 'package:dartpy/dartpy.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import '../colors.dart';
@@ -13,6 +14,29 @@ class TrackPad extends StatefulWidget {
 }
 
 class _TrackPadState extends State<TrackPad> {
+  
+  void _logCoordinates() {
+    var xMin = -100;
+    var xMax = 100;
+    var finalXMin = 120;
+    var finalXMax = 340;
+
+    var yMin = -100;
+    var yMax = 100;
+    var finalYMin = -280;
+    var finalYMax = 280;
+
+    var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
+    var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
+
+    var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
+    var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+
+    print('Logging current coordinates:');
+    print('Final X Position: $finalXPosition');
+    print('Final Y Position: $finalYPosition');
+  }
+
   double _xPosition = 0.0;
   double _yPosition = 0.0;
   double maxRange = 100.0;
@@ -44,26 +68,26 @@ class _TrackPadState extends State<TrackPad> {
               _xPosition = _clampPosition(dx, maxRange).roundToDouble();
               _yPosition = _clampPosition(dy, maxRange).roundToDouble();
 
-              var xMin = -100;
-              var xMax = 100;
-              var finalXMin = 120;
-              var finalXMax = 340;
+              // var xMin = -100;
+              // var xMax = 100;
+              // var finalXMin = 120;
+              // var finalXMax = 340;
 
-              var yMin = -100;
-              var yMax = 100;
-              var finalYMin = -280;
-              var finalYMax = 280;
+              // var yMin = -100;
+              // var yMax = 100;
+              // var finalYMin = -280;
+              // var finalYMax = 280;
 
-              var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
-              var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
+              // var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
+              // var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
 
-              var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
-              var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+              // var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
+              // var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+            
+              // var posList = [finalXPosition, finalYPosition];
+              // print(posList);
 
-              var posList = [finalXPosition, finalYPosition];
-              print(posList);
-
-              updateGestureData(finalXPosition, finalYPosition);
+              // updateGestureData(finalXPosition, finalYPosition);
             });
           },
           child: Container(
@@ -81,6 +105,10 @@ class _TrackPadState extends State<TrackPad> {
                     'Y Position: $_yPosition',
                     style: const TextStyle(fontSize: 24, color: AppColors.text),
                   ),
+                  ElevatedButton(
+                    onPressed: _logCoordinates, // Call the function to log coordinates
+                    child: Text('Log Coordinates'),
+                  ),
                 ],
               ),
             ),
@@ -96,30 +124,5 @@ class _TrackPadState extends State<TrackPad> {
     } else {
       return value;
     }
-  }
-
-  void updateGestureData(double xPosition, double yPosition) async {
-    Map<String, dynamic> gestureData = {
-      'gestureType': 'trackpad',
-      'xPosition': xPosition,
-      'yPosition': yPosition,
-    };
-
-    String jsonData = jsonEncode(gestureData);
-
-    Directory tempDir = await getTemporaryDirectory();
-    String tempPath = tempDir.path;
-
-    String filePath = '$tempPath/gesture_data.json';
-
-    File file = File(filePath);
-    await file.writeAsString(jsonData);
-
-    // Read the JSON file
-    String fileContent = await file.readAsString();
-    Map<String, dynamic> storedGestureData = jsonDecode(fileContent);
-
-    // Perform any further processing with the gesture data
-    print(storedGestureData);
   }
 }
