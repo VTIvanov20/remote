@@ -13,7 +13,7 @@ class _TrackPadWrapperState extends State<TrackPadWrapper> {
   double y = 0;
 
   Future<void> sendCommand(String command, double x, double y, double z) async {
-    final socket = await Socket.connect('localhost', 12345);
+    final socket = await Socket.connect('ws://10.130.3.228', 55444);
     print('Connected to Python script.');
 
     final data = '$command,$x,$y,$z';
