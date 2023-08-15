@@ -1,7 +1,3 @@
-import 'dart:convert';
-import 'dart:io';
-import 'package:dartpy/dartpy.dart';
-import 'package:path_provider/path_provider.dart';
 import 'package:flutter/material.dart';
 import '../colors.dart';
 
@@ -68,21 +64,7 @@ class _TrackPadState extends State<TrackPad> {
               _xPosition = _clampPosition(dx, maxRange).roundToDouble();
               _yPosition = _clampPosition(dy, maxRange).roundToDouble();
 
-              // var xMin = -100;
-              // var xMax = 100;
-              // var finalXMin = 120;
-              // var finalXMax = 340;
-
-              // var yMin = -100;
-              // var yMax = 100;
-              // var finalYMin = -280;
-              // var finalYMax = 280;
-
-              // var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
-              // var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
-
-              // var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
-              // var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+              // *global math code was here, replace if needed*
             
               // var posList = [finalXPosition, finalYPosition];
               // print(posList);

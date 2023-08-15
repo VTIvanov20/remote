@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:movie_app/views/portrait.dart';
 import 'package:movie_app/views/landscape.dart';
 import 'widgets/colors.dart';
-import 'dart:io';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
