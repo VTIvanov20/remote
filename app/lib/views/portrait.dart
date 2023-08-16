@@ -4,7 +4,7 @@ import 'package:movie_app/widgets/track_pad_wrapper.dart';
 // import 'package:movie_app/widgets/input.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/colors.dart';
-import 'package:web_socket_channel/io.dart';
+import 'package:web_socket_channel/web_socket_channel.dart';
 
 class PortraitView extends StatefulWidget {
   const PortraitView({Key? key});
@@ -14,23 +14,10 @@ class PortraitView extends StatefulWidget {
 }
 
 class _PortraitViewState extends State<PortraitView> {
-  final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
-  // final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
-
-  TextEditingController _controller = TextEditingController();
-
-  @override
-  void dispose() {
-    channel.sink.close();
-    super.dispose();
-  }
-
-  void _sendMessage(String message) {
-    if (message.isNotEmpty) {
-      channel.sink.add(message);
-      _controller.clear();
-    }
-  }
+  final TextEditingController _controller = TextEditingController();
+  final _channel = WebSocketChannel.connect(
+    Uri.parse('wss://echo.websocket.events'),
+  );
   
   @override
   Widget build(BuildContext context) {
@@ -44,25 +31,32 @@ class _PortraitViewState extends State<PortraitView> {
       child: ListView(
           physics: const NeverScrollableScrollPhysics(),
           children: [
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                StreamBuilder(
-                    stream: channel.stream,
-                    builder: (context, snapshot) {
-                      return Text(snapshot.hasData ? '${snapshot.data}' : '');
-                    },
-                  ),
-                  TextField(
-                    style: TextStyle(color: Colors.white),
-                    controller: _controller,
-                    decoration: const InputDecoration(labelText: 'Send a message'),
-                    onSubmitted: _sendMessage,
-                  ),
-              ],
-            ),
             // InputField(),
             // const OptionBar(),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Form(
+                  child: TextFormField(
+                    controller: _controller,
+                    decoration: const InputDecoration(labelText: 'command input'),
+                    style: TextStyle(color: Colors.amber[900]),
+                  ),
+                ),
+                const SizedBox(height: 24),
+                StreamBuilder(
+                  stream: _channel.stream,
+                  builder: (context, snapshot) {
+                    return Text(snapshot.hasData ? '${snapshot.data}' : '', style: TextStyle(color: Colors.green),);
+                  },
+                ),
+                FloatingActionButton(
+                  onPressed: _sendMessage,
+                  tooltip: 'Send message',
+                  child: const Icon(Icons.send),
+                ),
+              ],
+            ),
             const Text(
                 "Welcome",
                 style: TextStyle(
@@ -78,5 +72,18 @@ class _PortraitViewState extends State<PortraitView> {
           ],
         ),
     );
+  }
+
+  void _sendMessage() {
+    if (_controller.text.isNotEmpty) {
+      _channel.sink.add(_controller.text);
+    }
+  }
+
+  @override
+  void dispose() {
+    _channel.sink.close();
+    _controller.dispose();
+    super.dispose();
   }
 }

@@ -12,15 +12,15 @@ class _TrackPadWrapperState extends State<TrackPadWrapper> {
   double x = 0;
   double y = 0;
 
-  Future<void> sendCommand(String command, double x, double y, double z) async {
-    final socket = await Socket.connect('ws://10.130.3.228', 55444);
-    print('Connected to Python script.');
+  // Future<void> sendCommand(String command, double x, double y, double z) async {
+  //   final socket = await Socket.connect('ws://10.130.3.228', 55444);
+  //   print('Connected to Python script.');
 
-    final data = '$command,$x,$y,$z';
-    socket.write(data);
+  //   final data = '$command,$x,$y,$z';
+  //   socket.write(data);
 
-    socket.close();
-  }
+  //   socket.close();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -33,7 +33,7 @@ class _TrackPadWrapperState extends State<TrackPadWrapper> {
       },
       child: TrackPad(
         onPositionSelected: (x, y, z) {
-          sendCommand('position', x, y, z);
+          // sendCommand('position', x, y, z);
         },
       ),
     );

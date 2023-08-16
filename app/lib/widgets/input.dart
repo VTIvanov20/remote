@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
 import 'package:web_socket_channel/io.dart';
 
 class InputField extends StatefulWidget {
@@ -10,7 +9,8 @@ class InputField extends StatefulWidget {
 }
 
 class _InputFieldState extends State<InputField> {
-  final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
+  // final channel = IOWebSocketChannel.connect('ws://10.130.3.228:55444');
+  final channel = IOWebSocketChannel.connect('wss://socketsbay.com/wss/v2/1/demo/');
 
   final TextEditingController _controller = TextEditingController();
 
