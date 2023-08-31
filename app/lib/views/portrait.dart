@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/widgets/track_pad_wrapper.dart';
-// import 'package:movie_app/widgets/options.dart';
-// import 'package:movie_app/widgets/input.dart';
+import 'package:movie_app/widgets/components/track_pad.dart';
+import 'package:movie_app/widgets/z_pos_provider.dart';
 import 'package:movie_app/widgets/button_layout.dart';
 import 'package:movie_app/widgets/colors.dart';
-import 'package:web_socket_channel/web_socket_channel.dart';
+import 'dart:convert';
+import 'dart:io';
+
+const HOST = "10.130.3.228";
+const PORT = 65431;
 
 class PortraitView extends StatefulWidget {
   const PortraitView({Key? key});
@@ -14,11 +17,77 @@ class PortraitView extends StatefulWidget {
 }
 
 class _PortraitViewState extends State<PortraitView> {
-  final TextEditingController _controller = TextEditingController();
-  final _channel = WebSocketChannel.connect(
-    Uri.parse('wss://echo.websocket.events'),
-  );
-  
+  ZPositionManager zPositionManager = ZPositionManager();
+  late int socketX;
+  late int socketY;
+  late int socketZ;
+
+  void updateCoordinates(int newSocketX, int newSocketY) {
+    print('Received coordinates: X=$newSocketX, Y=$newSocketY');
+    setState(() {
+      socketX = newSocketX;
+      socketY = newSocketY;
+    });
+  }
+
+  Socket? socket;
+  TextEditingController textController = TextEditingController();
+  String receivedData = "";
+
+  @override
+  void initState() {
+    super.initState();
+    socketX = 0;
+    socketY = 0;
+    _connectToServer();
+  }
+
+  void _connectToServer() async {
+    try {
+      socket = await Socket.connect(HOST, PORT);
+      print('Connected to: ${socket!.remoteAddress.address}:${socket!.remotePort}');
+
+      socket!.listen(
+        (data) {
+          receivedData += utf8.decode(data);
+          if (receivedData.endsWith("\n")) {
+            print(receivedData.trim());
+            receivedData = "";
+          }
+        },
+        onDone: () {
+          socket!.destroy();
+        },
+      );
+    } catch (e) {
+      print('Error connecting to server: $e');
+    }
+  }
+
+  void _sendData(String data) {
+    if (socket != null && socket!.port != 0 && data.isNotEmpty) {
+      socket!.write(data);
+      socket!.writeln(""); // Sending an empty line to indicate the end of the message
+    }
+  }
+
+  String concatStringWithNumbers(int num1, int num2, int num3) {
+    return "set_$num1,$num2,$num3";
+  }
+
+  late int _number1;
+  late int _number2;
+  late int _number3;
+
+  @override
+  void dispose() {
+    if (socket != null) {
+      socket!.destroy();
+    }
+    textController.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -29,61 +98,53 @@ class _PortraitViewState extends State<PortraitView> {
         }
       },
       child: ListView(
-          physics: const NeverScrollableScrollPhysics(),
-          children: [
-            // InputField(),
-            // const OptionBar(),
-            Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Form(
-                  child: TextFormField(
-                    controller: _controller,
-                    decoration: const InputDecoration(labelText: 'command input'),
-                    style: TextStyle(color: Colors.amber[900]),
-                  ),
-                ),
-                const SizedBox(height: 24),
-                StreamBuilder(
-                  stream: _channel.stream,
-                  builder: (context, snapshot) {
-                    return Text(snapshot.hasData ? '${snapshot.data}' : '', style: TextStyle(color: Colors.green),);
-                  },
-                ),
-                FloatingActionButton(
-                  onPressed: _sendMessage,
-                  tooltip: 'Send message',
-                  child: const Icon(Icons.send),
-                ),
-              ],
-            ),
-            const Text(
-                "Welcome",
-                style: TextStyle(
-                  fontFamily: "Montserrat",
-                  fontSize: 17.5,
-                  fontWeight: FontWeight.bold,
-                  color: AppColors.text,
-                ),
-                textAlign: TextAlign.center,
+        physics: const NeverScrollableScrollPhysics(),
+        children: [
+          ElevatedButton(
+            onPressed: () {
+              print(socketX);
+              Text('Current zPosition: ${zPositionManager.zPosition}');
+              // zPositionManager.increaseZPosition();
+              _number1 = socketX;
+              _number2 = socketY;
+              _number3 = zPositionManager.zPosition;
+              String result = concatStringWithNumbers(_number1, _number2, _number3);
+              _sendData(result);
+            },
+            child: const Text('Send Values'),
+          ),
+          Row(
+            children: [
+              Text(
+                receivedData,
+                style: const TextStyle(color: Colors.green),
               ),
-            TrackPadWrapper(),
-            const ButtonLayout(),
-          ],
-        ),
+            ],
+          ),
+          const Text(
+            "Welcome",
+            style: TextStyle(
+              fontFamily: "Montserrat",
+              fontSize: 17.5,
+              fontWeight: FontWeight.bold,
+              color: AppColors.text,
+            ),
+            textAlign: TextAlign.center,
+          ),
+          GestureDetector(
+            onPanUpdate: (details) {
+              setState(() {
+                socketX += details.delta.dx as int;
+                socketY += details.delta.dy as int;
+              });
+            },
+            child: TrackPad(
+              onCoordinatesUpdated: updateCoordinates, // Pass the function as the callback
+            ),
+          ),
+          const ButtonLayout(),
+        ],
+      ),
     );
-  }
-
-  void _sendMessage() {
-    if (_controller.text.isNotEmpty) {
-      _channel.sink.add(_controller.text);
-    }
-  }
-
-  @override
-  void dispose() {
-    _channel.sink.close();
-    _controller.dispose();
-    super.dispose();
   }
 }

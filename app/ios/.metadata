@@ -5,7 +5,7 @@
 
 version:
   revision: 796c8ef79279f9c774545b3771238c3098dbefab
-  channel: stable
+  channel: movie_app
 
 project_type: app
 

@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/widgets/z_pos_provider.dart';
 import '../colors.dart';
 
 class TrackPad extends StatefulWidget {
-  final Function(double, double, double) onPositionSelected;
-  const TrackPad({ required this.onPositionSelected});
+  final Function(int, int) onCoordinatesUpdated;
+  const TrackPad({super.key,  required this.onCoordinatesUpdated});
 
   @override
   _TrackPadState createState() => _TrackPadState();
 }
 
 class _TrackPadState extends State<TrackPad> {
-  
+  ZPositionManager zPositionManager = ZPositionManager();
   void _logCoordinates() {
     var xMin = -100;
     var xMax = 100;
@@ -25,8 +26,9 @@ class _TrackPadState extends State<TrackPad> {
     var xScaleFactor = (finalXMax - finalXMin) / (xMax - xMin);
     var yScaleFactor = (finalYMax - finalYMin) / (yMax - yMin);
 
-    var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).roundToDouble();
-    var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).roundToDouble();
+    var finalXPosition = (xScaleFactor * _xPosition + (finalXMin - xScaleFactor * xMin)).round();
+    var finalYPosition = (yScaleFactor * _yPosition + (finalYMin - yScaleFactor * yMin)).round();
+    widget.onCoordinatesUpdated(finalXPosition, finalYPosition);
 
     print('Logging current coordinates:');
     print('Final X Position: $finalXPosition');
@@ -63,13 +65,6 @@ class _TrackPadState extends State<TrackPad> {
 
               _xPosition = _clampPosition(dx, maxRange).roundToDouble();
               _yPosition = _clampPosition(dy, maxRange).roundToDouble();
-
-              // *global math code was here, replace if needed*
-            
-              // var posList = [finalXPosition, finalYPosition];
-              // print(posList);
-
-              // updateGestureData(finalXPosition, finalYPosition);
             });
           },
           child: Container(
@@ -85,6 +80,10 @@ class _TrackPadState extends State<TrackPad> {
                   ),
                   Text(
                     'Y Position: $_yPosition',
+                    style: const TextStyle(fontSize: 24, color: AppColors.text),
+                  ),
+                  Text(
+                    'Z Position: ${zPositionManager.zPosition}',
                     style: const TextStyle(fontSize: 24, color: AppColors.text),
                   ),
                   ElevatedButton(

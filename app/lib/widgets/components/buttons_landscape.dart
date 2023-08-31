@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/components/z_button.dart';
 import 'package:movie_app/widgets/components/z_parent.dart';
 import 'package:movie_app/widgets/components/routine_button.dart';
-import 'package:movie_app/widgets/track_pad_wrapper.dart';
+// import 'package:movie_app/widgets/track_pad_wrapper.dart';
 
 class LandscapeButtons extends StatelessWidget {
   const LandscapeButtons({Key? key}) : super(key: key);
@@ -76,7 +76,7 @@ class LandscapeButtons extends StatelessWidget {
                     ],
                   ),
                 ),
-                TrackPadWrapper()
+                // TrackPadWrapper()
               ],
             ),
           ),

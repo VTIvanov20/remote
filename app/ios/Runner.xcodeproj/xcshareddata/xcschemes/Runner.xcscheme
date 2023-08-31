@@ -36,8 +36,8 @@
             ReferencedContainer = "container:Runner.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
-      <Testables>
-      </Testables>
+      <Temovie_apps>
+      </Temovie_apps>
    </TestAction>
    <LaunchAction
       buildConfiguration = "Debug"

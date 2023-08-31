@@ -15,7 +15,6 @@ class RoutineButton extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return GestureDetector(
-      // ignore: avoid_print
       onTap: onTap,
       child: ClipRRect(
         borderRadius: BorderRadius.circular(100),

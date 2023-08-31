@@ -1,16 +1,17 @@
-import 'package:flutter/material.dart' show BuildContext, Column, CrossAxisAlignment, EdgeInsets, Flexible, Icons, Key, MainAxisAlignment, MediaQuery, Orientation, Padding, Row, SizedBox, Stack, StatelessWidget, Widget;
+import 'package:flutter/material.dart';
 import 'package:movie_app/widgets/components/z_button.dart' show ZButton;
 import 'package:movie_app/widgets/components/z_parent.dart' show ZParent;
 import 'package:movie_app/widgets/components/action_button.dart' show ActionButton;
 import 'package:movie_app/widgets/components/routine_button.dart' show RoutineButton;
+import 'package:movie_app/widgets/z_pos_provider.dart';
 
 class PortaitButtons extends StatelessWidget {
+  ZPositionManager get zPositionManager => ZPositionManager();
   const PortaitButtons({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
-    int zPosition = 0;
 
     return Padding(
       padding: const EdgeInsets.only(top: 30, left: 20, right: 20),
@@ -60,12 +61,8 @@ class PortaitButtons extends StatelessWidget {
                         icon: Icons.arrow_drop_up_outlined,
                         tooltip: "Increase Z by 1",
                         onPressed: () {
-                          if (zPosition < 180) {
-                            zPosition++;
-                            print("up, current z: $zPosition");
-                          } else {
-                            print("Can't go higher than 180");
-                          }
+                          zPositionManager.increaseZPosition();
+                          print("updated: ${zPositionManager.zPosition}");
                         },
                         top: 5,
                         left: 5,
@@ -74,12 +71,7 @@ class PortaitButtons extends StatelessWidget {
                         icon: Icons.arrow_drop_down_outlined,
                         tooltip: "Decrease Z by 1", 
                         onPressed: () {
-                          if (zPosition > -180) {
-                            zPosition--;
-                            print("down, current z: $zPosition");
-                          } else {
-                            print("Can't go lower than -180");
-                          }
+                          zPositionManager.decreaseZPosition();
                         },
                         bottom: 5,
                         left: 5,

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:movie_app/views/portrait.dart';
-import 'package:movie_app/views/landscape.dart';
+// import 'package:movie_app/views/landscape.dart';
 import 'widgets/colors.dart';
 
 void main() {
@@ -39,11 +39,12 @@ class AppContents extends StatefulWidget {
 class _AppContentsState extends State<AppContents> {
   @override
   Widget build(BuildContext context) {
-    Orientation orientation = MediaQuery.of(context).orientation;
-    if (orientation == Orientation.portrait) {
-      return const PortraitView();
-    } else {
-      return const LandscapeView();
-    }
+    // Orientation orientation = MediaQuery.of(context).orientation;
+    // if (orientation == Orientation.portrait) {
+    //   return const PortraitView();
+    // } else {
+    //   return const LandscapeView();
+    // }
+    return const PortraitView();
   }
 }

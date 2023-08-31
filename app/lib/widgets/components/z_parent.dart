@@ -4,7 +4,6 @@ import 'package:movie_app/widgets/colors.dart';
 class ZParent extends StatelessWidget {
   const ZParent({super.key});
 
-
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
